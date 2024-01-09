@@ -1,0 +1,34 @@
+.home-container {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0 5%;
+}
+
+.plan-section {
+  margin-bottom: 5rem;
+}
+
+.img {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: var(--round-s);
+}
+
+/* TABLET */
+@media screen and (min-width: 800px) {
+  .home-container {
+    gap: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .plan-section {
+    margin-bottom: 0rem;
+  }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1200px) {
+  .home-container {
+    padding: 0;
+  }
+}

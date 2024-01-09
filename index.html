@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Get all you need in your fitness journey for free: custom meal plan, custom workout plan, and more - all for free."
+    />
+    <meta
+      name="keywords"
+      content="free meal plan maker, free workout plan maker, bmr calculator"
+    />
+    <meta name="author" content="Khaled Javedan" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="icon" href="favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/home.css" />
+    <link rel="stylesheet" href="./styles/layout.css" />
+    <link rel="stylesheet" href="./styles/classes.css" />
+
+    <link rel="canonical" href="" />
+
+    <title>Chikrice</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="navbar">
+        <!-- Logo -->
+        <a href="#" class="logo">
+          <img src="./assets/logo.webp" alt="Chikrice Logo" loading="lazy" />
+        </a>
+
+        <!-- Close Navbar -->
+        <div class="close-navbar"></div>
+
+        <!-- Menu Button (Mobile) -->
+        <div class="burger-menu">
+          <iconify-icon
+            icon="heroicons-outline:menu-alt-3"
+            width="32"
+            height="32"
+          ></iconify-icon>
+        </div>
+
+        <!-- Navigation Links (Bigger Screens) -->
+        <ul>
+          <li>
+            <a href="html/meal-plan-generator.html">Meal Plan Generator</a>
+          </li>
+          <li>
+            <a href="html/workout-plan-generator.html"
+              >Workout Plan Generator</a
+            >
+          </li>
+          <li>
+            <a href="html/bmr-calculator.html">BMR Calculator</a>
+          </li>
+          <li><a href="html/faq.html">F&amp;Q</a></li>
+          <li><a href="html/about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Sections -->
+    <div class="home-container">
+      <!-- Section 1: Free Meal Plan Generator -->
+      <section class="plan-section">
+        <header>
+          <h2>Free Meal Plan Generator</h2>
+        </header>
+        <img
+          src="./assets/chikrice.webp"
+          alt="Chikrice Meal Plan Generator"
+          loading="lazy"
+          class="img"
+        />
+        <p>Ready to make your custom Meal plan? It's totally <b>free</b>.</p>
+        <a href="html/meal-plan-generator.html" class="btn full-width"
+          >Generate</a
+        >
+      </section>
+
+      <!-- Section 2: Free Workout Plan Generator -->
+      <section class="plan-section">
+        <header>
+          <h2>Free Workout Plan Generator</h2>
+        </header>
+        <img
+          src="./assets/plan.webp"
+          alt="Chikrice Workout Plan Generator"
+          loading="lazy"
+          class="img"
+        />
+        <p>Make your custom workout plan? It's totally <b>free</b>.</p>
+        <a href="html/workout-plan-generator.html" class="btn full-width"
+          >Generate</a
+        >
+      </section>
+
+      <!-- Section 3: BMR Calculator -->
+      <section class="plan-section">
+        <header>
+          <h2>BMR Calculator(Calories/Day)</h2>
+        </header>
+        <img
+          src="./assets/bmr.webp"
+          alt="Chikrice BMR Calculator"
+          loading="lazy"
+          class="img"
+        />
+        <p>Check how many calories, macros you need in a day.</p>
+        <a href="html/bmr-calculator.html" class="btn full-width">Calculate</a>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div>
+        <!-- Footer Links -->
+        <ul>
+          <li>
+            <a href="html/meal-plan-generator.html">Meal Plan Generator</a>
+          </li>
+          <li>
+            <a href="html/workout-plan-generator.html"
+              >Workout Plan Generator</a
+            >
+          </li>
+          <li>
+            <a href="html/bmr-calculator.html">BMR Calculator</a>
+          </li>
+          <li><a href="html/faq.html">F&amp;Q</a></li>
+          <li><a href="html/about.html">About</a></li>
+        </ul>
+
+        <!-- Copyright Notice -->
+        <br />
+        <p>&copy; 2024 Chikrice. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://unpkg.com/vue@3.2.11/dist/vue.global.js"
+      defer
+    ></script>
+    <script src="./js/script.js" defer></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  </body>
+</html>

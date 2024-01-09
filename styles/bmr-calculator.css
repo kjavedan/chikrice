@@ -1,0 +1,78 @@
+.bmr-form {
+  /* border: solid; */
+  margin-top: 1rem;
+}
+
+.text-inputs-wrapper {
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.radio-group-wrapper {
+  margin-top: 1.5rem;
+}
+.input-radio-group {
+  gap: 2rem;
+  display: flex;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+
+.custom-radio {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.radio {
+  gap: 10px;
+  height: 30px;
+  align-items: center;
+  display: inline-flex;
+}
+.radio label {
+  cursor: pointer;
+}
+
+.bmr-results {
+  margin-top: 20px;
+  max-width: 600px;
+  display: none;
+}
+.bmr-results.show {
+  display: block;
+}
+
+#results-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+#results-table th,
+#results-table td {
+  border: 1px solid var(--clr-gray);
+  padding: 8px;
+  text-align: left;
+}
+
+#results-table th {
+  background-color: var(--clr-bg);
+}
+
+@media screen and (min-width: 500px) {
+  .text-inputs-wrapper {
+    flex-direction: row;
+    align-items: center;
+    max-width: 450px;
+    gap: 5px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .bmr-results {
+    float: right;
+    margin-top: -4rem;
+  }
+}

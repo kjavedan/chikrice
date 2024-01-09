@@ -1,0 +1,77 @@
+:root {
+  /* COLORS */
+  --clr-bg: #f2f2f2;
+  --clr-red: #ff3030;
+  --clr-gray: #d9d9d9;
+  --clr-text: #000000;
+  --clr-link: #0007a9;
+  --clr-card: #e8e8e8;
+  --clr-green: #00a76f;
+  --clr-yellow: #fda92d;
+  --clr-primary: #000000;
+  --clr-gray-soft: #f8f8f8;
+
+  /* TYPOGRAPHY */
+  --txt-xs: 8px;
+  --txt-s: 12px;
+  --txt-m: 16px;
+  --txt-l: 20px;
+  --txt-xl: 24px;
+  --txt-2xl: 32px;
+  --txt-3xl: 42px;
+
+  /* RADIUS */
+  --round-s: 2px;
+  --round-m: 6px;
+  --round-l: 12px;
+  --round-xl: 50%;
+
+  /* SHADOW */
+  --shadow-s: 0px 1px 1px 0px rgba(0, 0, 0, 0.25);
+  --shadow-m: 0px 2px 3px 1px rgba(0, 0, 0, 0.15);
+  --shadow-l: 0px 3px 4px 2px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0px 4px 4px 3px rgba(0, 0, 0, 0.15);
+}
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style to remove spinner in Chrome and Safari */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
+}
+
+/* TABLET */
+@media screen and (min-width: 800px) {
+  body {
+    width: 800px;
+  }
+}
+
+/* DESKTOP */
+@media screen and (min-width: 1200px) {
+  body {
+    width: 1100px;
+  }
+}

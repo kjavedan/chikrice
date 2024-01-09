@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Calculate your Basal Metabolic Rate (BMR) with the Chikrice BMR Calculator. Get insights into your daily calorie needs for maintaining weight, losing, or gaining."
+    />
+    <meta
+      name="keywords"
+      content="BMR calculator, Basal Metabolic Rate, daily calorie needs, weight management"
+    />
+    <meta name="author" content="Khaled Javedan" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="icon" href="../favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/layout.css" />
+    <link rel="stylesheet" href="../styles/classes.css" />
+    <link rel="stylesheet" href="../styles/bmr-calculator.css" />
+
+    <link
+      rel="canonical"
+      href="https://chikrice.com/html/bmr-calculator.html"
+    />
+
+    <title>BMR Calculator - Chikrice</title>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="navbar">
+        <!-- Logo -->
+        <a href="../index.html" class="logo">
+          <img src="../assets/logo.webp" alt="Chikrice Logo" loading="lazy" />
+        </a>
+
+        <!-- Close Navbar -->
+        <div class="close-navbar"></div>
+
+        <!-- Menu Button (Mobile) -->
+        <div class="burger-menu">
+          <iconify-icon
+            icon="heroicons-outline:menu-alt-3"
+            width="32"
+            height="32"
+          ></iconify-icon>
+        </div>
+
+        <!-- Navigation Links (Bigger Screens) -->
+        <ul>
+          <li>
+            <a href="../html/meal-plan-generator.html">Meal Plan Generator</a>
+          </li>
+          <li>
+            <a href="../html/workout-plan-generator.html"
+              >Workout Plan Generator</a
+            >
+          </li>
+          <li><a href="../html/bmr-calculator.html">BMR Calculator</a></li>
+          <li><a href="../html/faq.html">F&amp;Q</a></li>
+          <li><a href="../html/about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Sections -->
+    <div class="container">
+      <!-- Section 1: Content for BMR Calculator -->
+      <section class="page-title">
+        <header>
+          <h1>BMR Calculator</h1>
+          <a href="../html/faq.html?target=what-is-bmr" target="_blank"
+            >What is <b>BMR</b>? -></a
+          >
+        </header>
+      </section>
+
+      <section class="bmr-results">
+        <h3>Results</h3>
+        <table id="results-table">
+          <thead>
+            <tr>
+              <th>Activity Level</th>
+              <th>Daily Calorie (Calories/day)</th>
+              <th>Use for meal plan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Results will be dynamically added here -->
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Section 2: Main content -->
+      <section class="main-content">
+        <p class="italic">Enter your information below</p>
+        <form class="bmr-form">
+          <!-- Inputs -->
+          <div class="text-inputs-wrapper">
+            <!-- Input 1: Height -->
+            <div class="input-text-wrapper">
+              <label for="height" style="font-weight: bold">Height</label>
+              <div class="input-option-select">
+                <input
+                  min="0"
+                  value="180"
+                  id="height"
+                  type="number"
+                  class="input-text"
+                  placeholder="Enter your height"
+                />
+                <div class="option-select">
+                  <div class="option-select-btn" id="height-btn">
+                    <span class="Unit">CM</span>
+                    <iconify-icon icon="mingcute:down-line"></iconify-icon>
+                  </div>
+                  <div class="unit-options" id="height-options">
+                    <span class="option selected">CM</span>
+                    <span class="option">Inch</span>
+                    <span class="option">Feet</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Input 2: Weight -->
+            <div class="input-text-wrapper">
+              <label for="height" style="font-weight: bold">Weight</label>
+              <div class="input-option-select">
+                <input
+                  min="0"
+                  value="75"
+                  id="weight"
+                  type="number"
+                  class="input-text"
+                  placeholder="Enter Your weight"
+                />
+                <div class="option-select">
+                  <div class="option-select-btn" id="weight-btn">
+                    <span class="Unit">KG</span>
+                    <iconify-icon icon="mingcute:down-line"></iconify-icon>
+                  </div>
+                  <div class="unit-options" id="weight-options">
+                    <span class="option selected">KG</span>
+                    <span class="option">LB</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Input 3: Age -->
+            <div class="input-text-wrapper">
+              <label for="height" style="font-weight: bold">Age</label>
+              <div class="input-option-select">
+                <input
+                  min="0"
+                  id="age"
+                  type="number"
+                  class="input-text"
+                  placeholder="Enter your age"
+                  value="25"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Input 3: Gender -->
+          <div class="radio-group-wrapper">
+            <label for="gender" style="font-weight: bold">Gender</label>
+            <div class="input-radio-group">
+              <div class="radio">
+                <label for="male">🧍‍♂️Male</label>
+                <input
+                  checked
+                  id="male"
+                  type="radio"
+                  value="male"
+                  name="gender"
+                  class="custom-radio"
+                />
+              </div>
+              <div class="radio">
+                <label for="female">🧍‍♀Female</label>
+                <input
+                  id="female"
+                  type="radio"
+                  name="gender"
+                  value="female"
+                  class="custom-radio"
+                />
+              </div>
+            </div>
+          </div>
+
+          <br />
+          <!-- Input 4: Button -->
+          <button type="button" class="btn full-width" style="max-width: 450px">
+            Calculate
+          </button>
+        </form>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div>
+        <!-- Footer Links -->
+        <ul>
+          <li>
+            <a href="../html/meal-plan-generator.html">Meal Plan Generator</a>
+          </li>
+          <li>
+            <a href="../html/workout-plan-generator.html"
+              >Workout Plan Generator</a
+            >
+          </li>
+          <li><a href="../html/bmr-calculator.html">BMR Calculator</a></li>
+          <li><a href="../html/faq.html">F&amp;Q</a></li>
+          <li><a href="../html/about.html">About</a></li>
+        </ul>
+
+        <!-- Copyright Notice -->
+        <br />
+        <p>&copy; 2024 Chikrice. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://unpkg.com/vue@3.2.11/dist/vue.global.js"
+      defer
+    ></script>
+    <script src="../js/script.js" defer></script>
+    <script src="../js/bmr-calculator.js" defer></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  </body>
+</html>
