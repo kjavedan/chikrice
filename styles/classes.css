@@ -5,6 +5,7 @@
   margin: 1rem 0;
   color: white;
   cursor: pointer;
+  min-width: 120px;
   font-weight: bold;
   align-items: center;
   text-decoration: none;
@@ -20,16 +21,24 @@
   background-color: rgb(32, 32, 32);
 }
 
+.btn:disabled {
+  background-color: var(--clr-gray);
+}
+.btn.outline {
+  color: var(--clr-primary);
+  background-color: transparent;
+  border: solid var(--clr-primary);
+}
 .btn.full-width {
   width: 100%;
 }
 
 /* PAGE TITLE */
-.page-title header h1 {
+.page-title h1 {
   font-size: var(--txt-2xl);
 }
 
-.page-title a {
+.page-title-link {
   display: block;
   margin-top: 0.5rem;
   font-size: var(--txt-m);
@@ -117,9 +126,64 @@
   font-style: italic;
 }
 
+.main-wrapper {
+  /* border: solid; */
+  margin-top: 2rem;
+  margin-bottom: 20rem;
+}
+
+.step-question {
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+.step-content-wrapper {
+  /* border: solid red; */
+  margin-top: 1.5rem;
+}
+
+.step-link {
+  margin-top: 1.5rem;
+  display: block;
+}
+
+.step-actions {
+  gap: 40px;
+  display: flex;
+  /* border: solid blue; */
+  align-items: center;
+  margin-top: 1.5rem;
+  max-width: 400px;
+}
+
+.progress-bar {
+  height: 15px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  z-index: 20;
+  background-color: white;
+}
+
+.progress-indicator {
+  height: 100%;
+  transition: width 0.3s ease-in-out;
+  position: relative;
+  background-color: var(--clr-primary);
+  border-top-right-radius: var(--round-s);
+  border-bottom-right-radius: var(--round-s);
+}
+
+.step-label {
+  margin-left: 4px;
+  font-size: var(--txt-s);
+}
+
 /* TABLET  */
-/* @media screen and (min-width: 500px) {
-  .btn.full-width {
-    width: 200px;
+@media screen and (min-width: 1200px) {
+  .step-actions {
+    margin-left: 13rem;
   }
-} */
+}

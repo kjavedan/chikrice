@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="../styles/home.css" />
     <link rel="stylesheet" href="../styles/layout.css" />
     <link rel="stylesheet" href="../styles/classes.css" />
+    <link rel="stylesheet" href="../styles/meal-plan-generator.css" />
 
     <link rel="canonical" href="https://chikrice.com/" />
 
@@ -71,20 +72,268 @@
         </ul>
       </div>
     </nav>
+
     <!-- Sections -->
     <div class="container">
       <!-- Section 1: Content for Meal Plan Generator -->
-      <section class="page-title">
-        <header>
+      <section>
+        <header class="page-title">
           <h1>Meal Plan Generator</h1>
-          <a
-            href="../html/faq.html?target=what-makes-a-great-meal-plan"
-            target="_blank"
-            >What makes a great meal plan? -></a
-          >
         </header>
-        <!-- Add your specific content for the Meal Plan Generator section here -->
+        <a
+          href="../html/faq.html?target=what-makes-a-great-meal-plan"
+          target="_blank"
+          class="page-title-link"
+          >What makes a great meal plan? -></a
+        >
       </section>
+
+      <!-- MAIN LOGIC OF THE APP -->
+      <main class="main-wrapper">
+        <!-- VUE APPLICATION -->
+        <div id="meal-plan-generator-app">
+          <header>
+            <h2>Step {{step}}</h2>
+          </header>
+
+          <div class="progress-bar">
+            <div
+              class="progress-indicator"
+              :style="{ width: (100 / 8.4) * step + '%' }"
+            ></div>
+            <span class="step-label">{{ step * 12 }}%</span>
+          </div>
+
+          <!-- STEP_1 -->
+          <p class="step-question" v-if="step === 1">What is your goal?</p>
+          <!-- STEP_2 -->
+          <p class="step-question" v-if="step === 2">
+            How many calories do you need?
+          </p>
+          <!-- STEP_3 -->
+          <p class="step-question" v-if="step === 3">
+            Confirming your macros
+            <a href="#">What is <b>macros</b>?</a>
+          </p>
+          <!-- STEP_4 -->
+          <p class="step-question" v-if="step === 4">
+            Select your <b>Proteins</b>
+            <a href="#"> What you need to consider when selecting? </a>
+          </p>
+          <!-- STEP_5 -->
+          <p class="step-question" v-if="step === 5">
+            Select your <b>Carbs</b>
+            <a href="#"> What you need to consider when selecting? </a>
+          </p>
+          <!-- STEP_6 -->
+          <p class="step-question" v-if="step === 6">
+            Select your <b>Fats</b>
+            <a href="#"> What you need to consider when selecting? </a>
+          </p>
+          <!-- STEP_7 -->
+          <p class="step-question" v-if="step === 7">
+            Select your <b>Vegetables</b>
+            <a href="#"> What you need to consider when selecting? </a>
+          </p>
+          <!-- STEP_8 -->
+          <p class="step-question" v-if="step === 8">
+            How many meals you want us to break up your plan?
+            <a href="#">
+              why we recommend <b>4 meals</b> and <b>1 snack</b>?
+            </a>
+          </p>
+
+          <!-- MEAL PLAN CONTENT -->
+          <div class="step-content-wrapper">
+            <!-- STEP_1 -->
+            <div class="goals-wrapper" v-if="step === 1">
+              <div
+                :class="['goal-option', { 'selected': data?.goal === 'lose weight' }]"
+                @click="data.goal= 'lose weight'"
+              >
+                Lose weight
+              </div>
+              <div
+                :class="['goal-option', { 'selected': data?.goal === 'gain weight' }]"
+                @click="data.goal= 'gain weight'"
+              >
+                Gain weight
+              </div>
+            </div>
+
+            <!-- STEP_2 -->
+            <div class="bmr-wrapper" v-if="step === 2">
+              <!-- Input Calories -->
+              <div class="input-text-wrapper">
+                <label for="calories" style="font-weight: bold">calories</label>
+                <div class="input-option-select">
+                  <input
+                    min="0"
+                    v-model="data.calories"
+                    id="calories"
+                    type="number"
+                    class="input-text"
+                    placeholder="Enter your calories"
+                  />
+                </div>
+              </div>
+              <div class="link">
+                <small> Don't know? </small>
+                <a href="../html/bmr-calculator.html">calculate here</a>
+              </div>
+            </div>
+            <small class="protein">
+              {{stepError === 2 ? "Caloris should be minimum 1200": ''}}
+            </small>
+
+            <!-- STEP_3 -->
+            <div class="macros-wrapper" v-if="step === 3">
+              <p>
+                We recommend you the following ratio base on you goal
+                (<b>{{data.goal}}</b>) & your calories (<b>{{data.calories}}</b>
+                cal).
+              </p>
+
+              <ul>
+                <li class="protein">40% Proteins</li>
+                <li class="carb">40% Carbs</li>
+                <li class="fat">20% Fats</li>
+              </ul>
+
+              <p>You steel can change it to what you might have in mind.</p>
+
+              <div class="inputs">
+                <!-- Input 1: Proteins -->
+                <div class="input-text-wrapper">
+                  <label for="proteins" style="font-weight: bold"
+                    >Proteins</label
+                  >
+                  <div class="input-option-select">
+                    <input
+                      min="0"
+                      v-model="data.macros.proteins"
+                      id="proteins"
+                      type="number"
+                      class="input-text"
+                      placeholder="proteins"
+                    />
+                    <div class="option-select">
+                      <div
+                        class="option-select-btn"
+                        style="cursor: unset; width: 30px"
+                      >
+                        <span class="Unit">%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Input 2: Carbs -->
+                <div class="input-text-wrapper">
+                  <label for="carbs" style="font-weight: bold">Carbs</label>
+                  <div class="input-option-select">
+                    <input
+                      min="0"
+                      v-model="data.macros.carbs"
+                      id="carbs"
+                      type="number"
+                      class="input-text"
+                      placeholder="carbs"
+                    />
+                    <div class="option-select">
+                      <div
+                        class="option-select-btn"
+                        style="cursor: unset; width: 30px"
+                      >
+                        <span class="Unit">%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Input 1: Fats -->
+                <div class="input-text-wrapper">
+                  <label for="fats" style="font-weight: bold">Fats</label>
+                  <div class="input-option-select">
+                    <input
+                      min="0"
+                      v-model="data.macros.fats"
+                      id="fats"
+                      type="number"
+                      class="input-text"
+                      placeholder="fats"
+                    />
+                    <div class="option-select">
+                      <div
+                        class="option-select-btn"
+                        style="cursor: unset; width: 30px"
+                      >
+                        <span class="Unit">%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- PERCENTAGE ERRO -->
+              <small class="protein">
+                {{stepError ===3 ? "Total percentage must be 100%." : ''}}
+              </small>
+            </div>
+            <!-- STEP_4 -->
+            <!-- STEP_5 -->
+            <!-- STEP_6 -->
+            <!-- STEP_7 -->
+            <!-- STEP_8 -->
+          </div>
+
+          <!-- MEAL PLAN LINKS -->
+          <!-- STEP_1 -->
+          <a href="#" class="step-link" v-if="step === 1"
+            >What is the difference between <b>losing</b> and
+            <b>gaining</b> weight diet plan -></a
+          >
+          <!-- STEP_2 -->
+          <a href="#" class="step-link" v-if="step === 2">
+            How we use your calories with your goal to write a practical meal
+            plan for you ->
+          </a>
+          <!-- STEP_3 -->
+          <a href="#" class="step-link" v-if="step === 3"
+            >why macros are important in your diet and how we calculate
+            them-></a
+          >
+          <!-- STEP_4 -->
+          <a href="#" class="step-link" v-if="step === 4"
+            >What is the role of <b>proteins</b> in diet -></a
+          >
+          <!-- STEP_5 -->
+          <a href="#" class="step-link" v-if="step === 5"
+            >What is the role of <b>Carbs</b> in diet -></a
+          >
+          <!-- STEP_6 -->
+          <a href="#" class="step-link" v-if="step === 6"
+            >What is the role of <b>Fats</b> in diet -></a
+          >
+          <!-- STEP_7 -->
+          <a href="#" class="step-link" v-if="step === 7"
+            >What is the role of <b>Vegetables</b> in diet -></a
+          >
+          <!-- STEP_8 -->
+          <a href="#" class="step-link" v-if="step === 8"
+            >What is the <b>difference</b> between the number of meals in diet
+            -></a
+          >
+
+          <div class="step-actions">
+            <button class="btn outline full-width" @click="onBack">Back</button>
+            <button
+              class="btn full-width"
+              @click="onNext"
+              :disabled="stepError"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </main>
     </div>
 
     <!-- Footer -->
@@ -113,11 +362,9 @@
       </div>
     </footer>
 
-    <script
-      src="https://unpkg.com/vue@3.2.11/dist/vue.global.js"
-      defer
-    ></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="../js/script.js" defer></script>
+    <script src="../js/meal-plan-generator.prod.js" defer></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   </body>
 </html>

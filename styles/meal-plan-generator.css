@@ -1,0 +1,60 @@
+.goals-wrapper {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.goal-option {
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  aspect-ratio: 1/1;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--round-s);
+  background-color: var(--clr-card);
+}
+
+.goal-option.selected {
+  border: solid 2px var(--clr-primary);
+}
+
+.bmr-wrapper {
+  display: flex;
+  gap: 4px;
+  align-items: end;
+}
+
+.bmr-wrapper .link {
+  /* border: solid; */
+  margin-bottom: 15px;
+  width: 70%;
+}
+
+.macros-wrapper ul {
+  margin: 1.5rem;
+}
+
+.macros-wrapper ul li {
+  list-style: disc;
+  font-size: var(--txt-s);
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.protein {
+  color: var(--clr-red);
+}
+.carb {
+  color: var(--clr-green);
+}
+.fat {
+  color: var(--clr-yellow);
+}
+
+.macros-wrapper .inputs {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
