@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="get all what you need in your fitness journey for free, custom meal plan. Custom workout plan and many more all for free"
+    />
+    <meta
+      name="keywords"
+      content="fitness meal plan, free meal plan maker, custom meal plan"
+    />
+    <meta name="author" content="Khaled Javedan" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="icon" href="favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="../styles/main.css" />
+    <link rel="stylesheet" href="../styles/home.css" />
+    <link rel="stylesheet" href="../styles/layout.css" />
+    <link rel="stylesheet" href="../styles/classes.css" />
+    <link rel="stylesheet" href="../styles/meal-plan-results.css" />
+
+    <link rel="canonical" href="https://chikrice.com/" />
+
+    <title>Meal Plan Generator - Chikrice</title>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="navbar">
+        <!-- Logo -->
+        <a href="../index.html" class="logo">
+          <img src="../assets/logo.webp" alt="Meal Plan Image" loading="lazy" />
+        </a>
+
+        <!-- Close Navbar -->
+        <div class="close-navbar"></div>
+
+        <!-- Menu Button (Mobile) -->
+        <div class="burger-menu">
+          <iconify-icon
+            icon="heroicons-outline:menu-alt-3"
+            width="32"
+            height="32"
+          ></iconify-icon>
+        </div>
+
+        <!-- Navigation Links (Bigger Screens) -->
+        <ul>
+          <li>
+            <a href="../html/meal-plan-generator.html">Meal Plan Generator</a>
+          </li>
+          <li>
+            <a href="../html/workout-plan-generator.html"
+              >Workout Plan Generator</a
+            >
+          </li>
+          <li>
+            <a href="../html/bmr-calculator.html">BMR Calculator</a>
+          </li>
+          <li><a href="../html/faq.html">F&amp;Q</a></li>
+          <li><a href="../html/about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Sections -->
+    <div class="container">
+      <!-- Section 1: Content for Meal Plan Generator -->
+      <section>
+        <header class="page-title">
+          <h3>Congratulations Your plans is ready</h3>
+        </header>
+        <a
+          href="../html/meal-plan-generator.html"
+          target="_blank"
+          class="page-title-link"
+          >Edit your meal plan -></a
+        >
+      </section>
+
+      <div class="meal-plan-results">
+        <div id="meal-plan-results-app">
+          <!-- DOWNALOAD BTN -->
+          <div class="pdf-download-wrapper">
+            <button class="btn full-width">Download PDF</button>
+          </div>
+
+          <!-- SUMMARY BOX -->
+          <div class="meal-plan-result-summary">
+            <div class="left">
+              <div>
+                <h5>Time to commit</h5>
+                <p>1 month</p>
+              </div>
+              <div>
+                <h5>Goal</h5>
+                <p>Lose weight</p>
+              </div>
+              <div>
+                <h5>Caloris</h5>
+                <p><b>1987</b> <small>cal/day</small></p>
+              </div>
+            </div>
+            <div class="right">
+              <h5>Macros</h5>
+              <ul>
+                <li class="protein">40% Protein -> <b>240g</b></li>
+                <li class="carb">40% Carbs -> <b>240g</b></li>
+                <li class="fat">20% Fats -> <b>50g</b></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- MEAL WRAPPER -->
+          <div class="meal-wrapper">
+            <!-- MEAL HEADER -->
+            <div class="meal-header">
+              <h3>Meal 1</h3>
+              <p>Calories: 390</p>
+              <ul>
+                <li class="protein">Pro <b>240g</b></li>
+                <li class="carb">Carbs<b>240g</b></li>
+                <li class="fat">Fats <b>50g</b></li>
+              </ul>
+            </div>
+          </div>
+          <!-- MEAL TABLE -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Food</th>
+                <th>Pro</th>
+                <th>Carb</th>
+                <th>Fat</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>🧋 1 scope Protein shake</td>
+                <td>21</td>
+                <td>0</td>
+                <td>15</td>
+                <td>...</td>
+              </tr>
+              <tr>
+                <td>🥚 3 Eggs</td>
+                <td>21</td>
+                <td>0</td>
+                <td>15</td>
+                <td>...</td>
+              </tr>
+              <tr>
+                <td>🥚 3 Eggs</td>
+                <td>21</td>
+                <td>0</td>
+                <td>15</td>
+                <td>...</td>
+              </tr>
+              <tr>
+                <td>🥚 3 Eggs</td>
+                <td>21</td>
+                <td>0</td>
+                <td>15</td>
+                <td>...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div>
+        <!-- Footer Links -->
+        <ul>
+          <li>
+            <a href="../html/meal-plan-generator.html">Meal Plan Generator</a>
+          </li>
+          <li>
+            <a href="../html/workout-plan-generator.html"
+              >Workout Plan Generator</a
+            >
+          </li>
+          <li>
+            <a href="../html/bmr-calculator.html">BMR Calculator</a>
+          </li>
+          <li><a href="../html/faq.html">F&amp;Q</a></li>
+          <li><a href="../html/about.html">About</a></li>
+        </ul>
+
+        <!-- Copyright Notice -->
+        <br />
+        <p>&copy; 2024 Chikrice. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="../js/script.js" defer></script>
+    <script src="../js/meal-plan-results.prod.js" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </body>
+</html>

@@ -122,6 +122,45 @@
   background-color: var(--clr-gray);
 }
 
+.input-checkbox {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 1rem;
+}
+
+.input-checkbox input {
+  margin-top: 2px;
+}
+.input-checkbox label {
+  cursor: pointer;
+}
+
+.radio-group-wrapper {
+  margin-top: 1.5rem;
+}
+.input-radio-group {
+  gap: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+.custom-radio {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.radio {
+  gap: 10px;
+  height: 30px;
+  align-items: center;
+  display: inline-flex;
+}
+.radio label {
+  cursor: pointer;
+}
+
 .italic {
   font-style: italic;
 }
@@ -181,7 +220,38 @@
   font-size: var(--txt-s);
 }
 
-/* TABLET  */
+.protein {
+  color: var(--clr-red);
+}
+.carb {
+  color: var(--clr-green);
+}
+.fat {
+  color: var(--clr-yellow);
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  max-width: 500px;
+}
+
+.table th,
+.table td {
+  border: 1px solid var(--clr-gray);
+  padding: 8px;
+  text-align: left;
+}
+.table td {
+  font-size: 14px;
+}
+
+.table th {
+  background-color: var(--clr-bg);
+  font-size: 14px;
+}
+
+/* DESKTOP  */
 @media screen and (min-width: 1200px) {
   .step-actions {
     margin-left: 13rem;

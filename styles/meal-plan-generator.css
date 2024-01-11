@@ -6,8 +6,9 @@
 
 .goal-option {
   width: 100%;
-  max-width: 200px;
   display: flex;
+  cursor: pointer;
+  max-width: 200px;
   aspect-ratio: 1/1;
   align-items: center;
   justify-content: center;
@@ -42,19 +43,13 @@
   margin-top: 0.5rem;
 }
 
-.protein {
-  color: var(--clr-red);
-}
-.carb {
-  color: var(--clr-green);
-}
-.fat {
-  color: var(--clr-yellow);
-}
-
 .macros-wrapper .inputs {
   margin-top: 1.5rem;
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.protiens-wrapper {
+  /* border: solid; */
 }
