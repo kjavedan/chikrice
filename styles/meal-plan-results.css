@@ -26,6 +26,9 @@
   justify-content: space-between;
   height: 130px;
 }
+.meal-plan-result-summary h5 {
+  margin-top: 1rem;
+}
 .meal-plan-result-summary .right ul li {
   list-style: disc;
   margin-top: 0.75rem;
@@ -38,20 +41,58 @@
 .meal-wrapper {
   margin-top: 2rem;
 }
-.meal-header {
+.meal-header-title {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
   flex-wrap: wrap;
   max-width: 500px;
 }
-.meal-header ul {
+.meal-header-macros {
+  margin-top: 0.5rem;
+  width: 220px;
+}
+
+.meal-header-macros .macros-percentage-bar {
+  margin-top: 0.5rem;
+  height: 6px;
   display: flex;
   align-items: center;
-  gap: 7px;
+}
+.meal-header-macros .macros-percentage-bar div {
+  height: 100%;
+}
+.macros-percentage-bar .left {
+  border-top-left-radius: var(--round-s);
+  border-bottom-left-radius: var(--round-s);
+  background-color: var(--clr-red);
+}
+.macros-percentage-bar .middle {
+  background-color: var(--clr-green);
+}
+.macros-percentage-bar .right {
+  background-color: var(--clr-yellow);
+  border-top-right-radius: var(--round-s);
+  border-bottom-right-radius: var(--round-s);
+}
+
+.meal-header .meal-header-macros ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .meal-header ul li {
   font-size: var(--txt-s);
+}
+.meal-options-wrapper {
+  margin-top: 1rem;
+}
+.meal-option {
+  margin-bottom: 1rem;
+}
+.meal-option h3 {
+  font-size: 14px;
 }
 /* TABLET  */
 @media screen and (min-width: 800px) {

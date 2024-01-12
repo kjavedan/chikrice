@@ -251,6 +251,21 @@
   font-size: 14px;
 }
 
+.change-btn {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: solid var(--clr-gray);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-s);
+  cursor: pointer;
+}
+.change-btn:hover {
+  background-color: var(--clr-gray);
+}
+
 /* DESKTOP  */
 @media screen and (min-width: 1200px) {
   .step-actions {

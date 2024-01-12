@@ -78,7 +78,7 @@
       <!-- Section 1: Content for Meal Plan Generator -->
       <section>
         <header class="page-title">
-          <h3>Congratulations Your plans is ready</h3>
+          <h1>Congratulations Your plans is ready</h1>
         </header>
         <a
           href="../html/meal-plan-generator.html"
@@ -107,17 +107,26 @@
                 <p>Lose weight</p>
               </div>
               <div>
-                <h5>Caloris</h5>
-                <p><b>1987</b> <small>cal/day</small></p>
+                <h5>Estemated to lose</h5>
+                <p>
+                  <b>(1 - 2)kg</b> <small>in</small> <b>1</b>
+                  <small> month</small>
+                </p>
               </div>
             </div>
             <div class="right">
-              <h5>Macros</h5>
-              <ul>
-                <li class="protein">40% Protein -> <b>240g</b></li>
-                <li class="carb">40% Carbs -> <b>240g</b></li>
-                <li class="fat">20% Fats -> <b>50g</b></li>
-              </ul>
+              <div>
+                <h5>Caloris</h5>
+                <p><b>1987</b> <small>cal/day</small></p>
+              </div>
+              <div>
+                <h5 class="macros-title">Macros</h5>
+                <ul>
+                  <li class="protein">40% Protein -> <b>240g</b></li>
+                  <li class="carb">40% Carbs -> <b>240g</b></li>
+                  <li class="fat">20% Fats -> <b>50g</b></li>
+                </ul>
+              </div>
             </div>
           </div>
 
@@ -125,57 +134,112 @@
           <div class="meal-wrapper">
             <!-- MEAL HEADER -->
             <div class="meal-header">
-              <h3>Meal 1</h3>
-              <p>Calories: 390</p>
-              <ul>
-                <li class="protein">Pro <b>240g</b></li>
-                <li class="carb">Carbs<b>240g</b></li>
-                <li class="fat">Fats <b>50g</b></li>
-              </ul>
+              <div class="meal-header-title">
+                <h2>Meal 1</h2>
+                <p>Calories: <b>390</b></p>
+              </div>
+              <div class="meal-header-macros">
+                <ul>
+                  <li class="protein">Pro <b>240g</b></li>
+                  <li class="carb">Carbs<b>240g</b></li>
+                  <li class="fat">Fats <b>50g</b></li>
+                </ul>
+                <div class="macros-percentage-bar">
+                  <div class="left" style="width: 40%"></div>
+                  <div class="middle" style="width: 40%"></div>
+                  <div class="right" style="width: 20%"></div>
+                </div>
+              </div>
             </div>
           </div>
-          <!-- MEAL TABLE -->
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Food</th>
-                <th>Pro</th>
-                <th>Carb</th>
-                <th>Fat</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>🧋 1 scope Protein shake</td>
-                <td>21</td>
-                <td>0</td>
-                <td>15</td>
-                <td>...</td>
-              </tr>
-              <tr>
-                <td>🥚 3 Eggs</td>
-                <td>21</td>
-                <td>0</td>
-                <td>15</td>
-                <td>...</td>
-              </tr>
-              <tr>
-                <td>🥚 3 Eggs</td>
-                <td>21</td>
-                <td>0</td>
-                <td>15</td>
-                <td>...</td>
-              </tr>
-              <tr>
-                <td>🥚 3 Eggs</td>
-                <td>21</td>
-                <td>0</td>
-                <td>15</td>
-                <td>...</td>
-              </tr>
-            </tbody>
-          </table>
+          <!-- OPTIONS WRAPPER -->
+          <div class="meal-options-wrapper">
+            <!-- OPTION -->
+            <div class="meal-option">
+              <h3>Option 1</h3>
+              <!-- OPTION TABLE -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Food</th>
+                    <th>Amount</th>
+                    <th>Pro(g)</th>
+                    <th>Carb(g)</th>
+                    <th>Fat(g)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>🥚Eggs</td>
+                    <td>150g - (3eggs)</td>
+                    <td>21</td>
+                    <td>0</td>
+                    <td>15</td>
+                  </tr>
+                  <tr>
+                    <td>🍳 Egg white</td>
+                    <td>100g - (3eggs)</td>
+                    <td>12</td>
+                    <td>0</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>🌾 Oats</td>
+                    <td>50g - (1/3 cup)</td>
+                    <td>2.6</td>
+                    <td>27</td>
+                    <td>3</td>
+                  </tr>
+                  <tr>
+                    <td>🍚 Rice</td>
+                    <td>158g - (1cup)</td>
+                    <td>21</td>
+                    <td>0</td>
+                    <td>15</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!-- OPTION -->
+            <div class="meal-option">
+              <h3>Option 2</h3>
+              <!-- OPTION TABLE -->
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Food</th>
+                    <th>Amount</th>
+                    <th>Pro(g)</th>
+                    <th>Carb(g)</th>
+                    <th>Fat(g)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>🐔 Chicken breast</td>
+                    <td>150g</td>
+                    <td>45</td>
+                    <td>0</td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <td>🥔 Potato</td>
+                    <td>300g - (1 large)</td>
+                    <td>6</td>
+                    <td>60</td>
+                    <td>4</td>
+                  </tr>
+                  <tr>
+                    <td>🥦 Broccoli</td>
+                    <td>158g - (1cup)</td>
+                    <td>4</td>
+                    <td>8</td>
+                    <td>3</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -201,13 +265,15 @@
         </ul>
 
         <!-- Copyright Notice -->
+
         <br />
-        <p>&copy; 2024 Chikrice. All rights reserved.</p>
+        <p style="margin: 3rem 0">&copy; 2024 Chikrice. All rights reserved.</p>
       </div>
     </footer>
 
     <script src="../js/script.js" defer></script>
     <script src="../js/meal-plan-results.prod.js" defer></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   </body>
 </html>
