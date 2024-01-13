@@ -39,7 +39,8 @@
   font-size: 13px;
 }
 .meal-wrapper {
-  margin-top: 2rem;
+  margin-top: 5rem;
+  max-width: 500px;
 }
 .meal-header-title {
   display: flex;
@@ -47,7 +48,25 @@
   justify-content: space-between;
   gap: 0.5rem;
   flex-wrap: wrap;
-  max-width: 500px;
+}
+.meal-header-info {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.btn-customize {
+  border-radius: var(--round-s);
+  padding: 0.35rem 0.5rem;
+  background-color: transparent;
+  font-weight: bold;
+  border: solid var(--clr-card);
+  box-shadow: var(--shadow-s);
+  cursor: pointer;
+  color: rgb(0, 19, 185);
+}
+.btn-customize:hover {
+  background: var(--clr-card);
 }
 .meal-header-macros {
   margin-top: 0.5rem;
@@ -56,7 +75,7 @@
 
 .meal-header-macros .macros-percentage-bar {
   margin-top: 0.5rem;
-  height: 6px;
+  height: 4px;
   display: flex;
   align-items: center;
 }
@@ -90,6 +109,12 @@
 }
 .meal-option {
   margin-bottom: 1rem;
+  max-width: 500px;
+}
+.meal-option-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .meal-option h3 {
   font-size: 14px;

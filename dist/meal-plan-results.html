@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="get all what you need in your fitness journey for free, custom meal plan. Custom workout plan and many more all for free"
+    />
+    <meta
+      name="keywords"
+      content="fitness meal plan, free meal plan maker, custom meal plan"
+    />
+    <meta name="author" content="Khaled Javedan" />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="icon" href="favicon.ico" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/layout.css" />
+    <link rel="stylesheet" href="./styles/classes.css" />
+    <link rel="stylesheet" href="./styles/meal-plan-results.css" />
+
+    <link rel="canonical" href="https://chikrice.com/" />
+
+    <title>Meal Plan Result - Chikrice</title>
+  </head>
+  <body>
+    <!-- Sections -->
+    <div class="container" style="margin-bottom: 10rem">
+      <!-- Section 1: Content for Meal Plan Generator -->
+      <section style="margin-top: 2rem">
+        <header class="page-title">
+          <h1>Congratulations Your plans is ready</h1>
+        </header>
+        <a
+          href="./meal-plan-generator.html"
+          target="_blank"
+          class="page-title-link"
+          >Edit your meal plan -></a
+        >
+      </section>
+
+      <div class="meal-plan-results">
+        <div id="meal-plan-results-app">
+          <!-- DOWNALOAD BTN -->
+          <div class="pdf-download-wrapper">
+            <button class="btn full-width">Download PDF</button>
+          </div>
+
+          <!-- SUMMARY BOX -->
+          <div class="meal-plan-result-summary">
+            <div class="left">
+              <div>
+                <h5>Time to commit</h5>
+                <p>1 month</p>
+              </div>
+              <div>
+                <h5>Goal</h5>
+                <p>Lose weight</p>
+              </div>
+              <div>
+                <h5>Estemated to lose</h5>
+                <p>
+                  <b>(1 - 2)kg</b> <small>in</small> <b>1</b>
+                  <small> month</small>
+                </p>
+              </div>
+            </div>
+            <div class="right">
+              <div>
+                <h5>Caloris</h5>
+                <p><b>1987</b> <small>cal/day</small></p>
+              </div>
+              <div>
+                <h5 class="macros-title">Macros</h5>
+                <ul>
+                  <li class="protein">40% Protein -> <b>240g</b></li>
+                  <li class="carb">40% Carbs -> <b>240g</b></li>
+                  <li class="fat">20% Fats -> <b>50g</b></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- MEAL -->
+          <div
+            class="meal"
+            v-for="(meal, index) in mealPlanResult"
+            :key="index"
+          >
+            <!-- MEAL WRAPPER -->
+            <div class="meal-wrapper">
+              <!-- MEAL HEADER -->
+              <div class="meal-header">
+                <div class="meal-header-title">
+                  <h2>Meal {{index + 1}}</h2>
+                  <p>Calories: <b>{{meal.calories}}</b></p>
+                </div>
+                <div class="meal-header-macros">
+                  <ul>
+                    <li class="protein">
+                      Pro <b>{{meal.macros.pro.value}}g</b>
+                    </li>
+                    <li class="carb">
+                      Carbs<b>{{meal.macros.carb.value}}g</b>
+                    </li>
+                    <li class="fat">Fats <b>{{meal.macros.fat.value}}g</b></li>
+                  </ul>
+                  <div class="macros-percentage-bar">
+                    <div
+                      class="left"
+                      :style="{width:meal.macros.pro.percentage +'%'}"
+                    ></div>
+                    <div
+                      class="middle"
+                      :style="{width:meal.macros.carb.percentage +'%'}"
+                    ></div>
+                    <div
+                      class="right"
+                      :style="{width:meal.macros.fat.percentage +'%'}"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- OPTIONS WRAPPER -->
+            <div
+              class="meal-options-wrapper"
+              v-for="(option, index) in meal.options"
+              :key="index"
+            >
+              <!-- OPTION -->
+              <div class="meal-option">
+                <div class="meal-option-header">
+                  <h3>Option {{index + 1}}</h3>
+                  <button class="btn-customize">Customize</button>
+                </div>
+                <!-- OPTION TABLE -->
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Food</th>
+                      <th>Amount</th>
+                      <th>Pro(g)</th>
+                      <th>Carb(g)</th>
+                      <th>Fat(g)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- PROTEINS -->
+                    <tr v-for="item in option.proteins" :key="item.value">
+                      <td>{{item.label}}</td>
+                      <td>
+                        {{ item.amount?.weight }}{{ item.amount?.count ? ' - ('
+                        + item?.amount?.count + ')' : '' }}
+                      </td>
+                      <td>{{item.nutrientFacts.protein}}</td>
+                      <td>{{item.nutrientFacts.carbs}}</td>
+                      <td>{{item.nutrientFacts.fat}}</td>
+                    </tr>
+                    <!-- CARBS -->
+                    <tr v-for="item in option.carbs" :key="item?.value">
+                      <td>{{item?.label}}</td>
+                      <td>
+                        {{ item.amount?.weight }}{{ item.amount?.count ? ' - ('
+                        + item?.amount?.count + ')' : '' }}
+                      </td>
+                      <td>{{item?.nutrientFacts?.protein}}</td>
+                      <td>{{item?.nutrientFacts?.carbs}}</td>
+                      <td>{{item?.nutrientFacts?.fat}}</td>
+                    </tr>
+                    <!-- FATS -->
+                    <tr v-for="item in option.fats" :key="item?.value">
+                      <td>{{item?.label}}</td>
+                      <td>
+                        {{ item?.amount?.weight }}{{ item?.amount?.count ?' - ('
+                        + item?.amount?.count + ')' : '' }}
+                      </td>
+                      <td>{{item?.nutrientFacts?.protein}}</td>
+                      <td>{{item?.nutrientFacts?.carbs}}</td>
+                      <td>{{item?.nutrientFacts?.fat}}</td>
+                    </tr>
+                    <!-- VEGETABLES -->
+                    <tr v-for="item in option.vegetables" :key="item?.value">
+                      <td>{{item?.label}}</td>
+                      <td>
+                        {{ item.amount?.weight }}{{ item?.amount?.count ? ' - ('
+                        + item?.amount?.count + ')' : '' }}
+                      </td>
+                      <td>{{item?.nutrientFacts?.protein}}</td>
+                      <td>{{item?.nutrientFacts?.carbs}}</td>
+                      <td>{{item?.nutrientFacts?.fat}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./js/meal-plan-results.prod.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </body>
+</html>

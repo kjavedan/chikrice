@@ -23,11 +23,11 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="../styles/main.css" />
-    <link rel="stylesheet" href="../styles/home.css" />
-    <link rel="stylesheet" href="../styles/layout.css" />
-    <link rel="stylesheet" href="../styles/classes.css" />
-    <link rel="stylesheet" href="../styles/meal-plan-generator.css" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" href="./styles/home.css" />
+    <link rel="stylesheet" href="./styles/layout.css" />
+    <link rel="stylesheet" href="./styles/classes.css" />
+    <link rel="stylesheet" href="./styles/meal-plan-generator.css" />
 
     <link rel="canonical" href="https://chikrice.com/" />
 
@@ -39,8 +39,8 @@
     <nav>
       <div class="navbar">
         <!-- Logo -->
-        <a href="../index.html" class="logo">
-          <img src="../assets/logo.webp" alt="Meal Plan Image" loading="lazy" />
+        <a href="./index.html" class="logo">
+          <img src="./assets/logo.webp" alt="Meal Plan Image" loading="lazy" />
         </a>
 
         <!-- Close Navbar -->
@@ -58,18 +58,16 @@
         <!-- Navigation Links (Bigger Screens) -->
         <ul>
           <li>
-            <a href="../html/meal-plan-generator.html">Meal Plan Generator</a>
+            <a href="./meal-plan-generator.html">Meal Plan Generator</a>
           </li>
           <li>
-            <a href="../html/workout-plan-generator.html"
-              >Workout Plan Generator</a
-            >
+            <a href="./workout-plan-generator.html">Workout Plan Generator</a>
           </li>
           <li>
-            <a href="../html/bmr-calculator.html">BMR Calculator</a>
+            <a href="./bmr-calculator.html">BMR Calculator</a>
           </li>
-          <li><a href="../html/faq.html">F&amp;Q</a></li>
-          <li><a href="../html/about.html">About</a></li>
+          <li><a href="./faq.html">F&amp;Q</a></li>
+          <li><a href="./about.html">About</a></li>
         </ul>
       </div>
     </nav>
@@ -82,7 +80,7 @@
           <h1>Meal Plan Generator</h1>
         </header>
         <a
-          href="../html/faq.html?target=what-makes-a-great-meal-plan"
+          href="./faq.html?target=what-makes-a-great-meal-plan"
           target="_blank"
           class="page-title-link"
           >What makes a great meal plan? -></a
@@ -143,9 +141,7 @@
           <!-- STEP_9 -->
           <p class="step-question" v-if="step === 9">
             How many meals you want us to break up your plan?
-            <a href="#">
-              why we recommend <b>4 meals</b> and <b>1 snack</b>?
-            </a>
+            <a href="#"> why we recommend <b>4-5 meals</b>? </a>
           </p>
 
           <!-- MEAL PLAN CONTENT -->
@@ -209,7 +205,7 @@
               </div>
               <div class="link">
                 <small> Don't know? </small>
-                <a href="../html/bmr-calculator.html">calculate here</a>
+                <a href="./bmr-calculator.html">calculate here</a>
               </div>
             </div>
             <small class="protein">
@@ -382,7 +378,7 @@
               </div>
 
               <!-- Radio Group for Snacks -->
-              <div class="radio-group-wrapper">
+              <!-- <div class="radio-group-wrapper">
                 <p>Snacks</p>
                 <div class="input-radio-group">
                   <div class="radio" v-for="snack in [1, 2, 3]" :key="snack">
@@ -397,7 +393,7 @@
                     <label :for="'snack' + snack">{{ snack }}</label>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
 
@@ -464,18 +460,16 @@
         <!-- Footer Links -->
         <ul>
           <li>
-            <a href="../html/meal-plan-generator.html">Meal Plan Generator</a>
+            <a href="./meal-plan-generator.html">Meal Plan Generator</a>
           </li>
           <li>
-            <a href="../html/workout-plan-generator.html"
-              >Workout Plan Generator</a
-            >
+            <a href="./workout-plan-generator.html">Workout Plan Generator</a>
           </li>
           <li>
-            <a href="../html/bmr-calculator.html">BMR Calculator</a>
+            <a href="./bmr-calculator.html">BMR Calculator</a>
           </li>
-          <li><a href="../html/faq.html">F&amp;Q</a></li>
-          <li><a href="../html/about.html">About</a></li>
+          <li><a href="./faq.html">F&amp;Q</a></li>
+          <li><a href="./about.html">About</a></li>
         </ul>
 
         <!-- Copyright Notice -->
@@ -485,8 +479,8 @@
     </footer>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="../js/script.js" defer></script>
-    <script src="../js/meal-plan-generator.prod.js" defer></script>
+    <script src="./js/script.js" defer></script>
+    <script src="./js/meal-plan-generator.prod.js" defer></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   </body>
 </html>

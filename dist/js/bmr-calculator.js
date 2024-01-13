@@ -173,7 +173,7 @@ function calculateBMR() {
     // Create a link inside cell3
     const link = document.createElement("a");
     link.textContent = "Use";
-    link.href = `../html/meal-plan-generator.html?calories=${dailyCalories.toFixed(
+    link.href = `../meal-plan-generator.html?calories=${dailyCalories.toFixed(
       0
     )}`;
 

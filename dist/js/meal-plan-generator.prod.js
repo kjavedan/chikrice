@@ -33,7 +33,7 @@ createApp({
       { label: "🦃 Turkey ", value: "turkey " },
       { label: "🍳 Egg White", value: "eggWhite" },
       { label: "🥛 Greek Yogurt", value: "greekYogurt" },
-      { label: "🧋 Protein supplements", value: "proteinSupplements" },
+      { label: "🧋 Protein Why", value: "proteinWhy" },
     ]);
 
     const carbsOptions = ref([
@@ -42,8 +42,9 @@ createApp({
       { label: "🌾 Oats", value: "oats" },
       { label: "🍝 Pasta", value: "pasta" },
       { label: "🥖 Bread", value: "bread" },
-      { label: "🍏 Apple", value: "apple" },
       { label: "🥔 Potato", value: "potato" },
+      { label: "🫘 beansLentils", value: "Beans & Lentils" },
+      { label: "🍏 Apple", value: "apple" },
       { label: "🍌 Banana", value: "banana" },
       { label: "🍇 Grapes", value: "grapes" },
       { label: "🍊 Orange", value: "orange" },
@@ -55,7 +56,6 @@ createApp({
     const fatsOptions = ref([
       { label: "🥜 Nuts", value: "nuts" },
       { label: "🥑 Avocado", value: "avocado" },
-      { label: "🐟 Fish Oil", value: "fishOil" },
       { label: "🫒 Olive Oil", value: "oliveOil" },
       { label: "🌻 Regular Oil", value: "regularOil" },
     ]);
@@ -80,7 +80,7 @@ createApp({
         step.value++;
       } else if (step.value == 9) {
         console.log(data.value);
-        window.location.href = "../html/meal-plan-results.html";
+        window.location.href = "./meal-plan-results.html";
       }
     };
 
