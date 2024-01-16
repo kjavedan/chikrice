@@ -1,7 +1,7 @@
 // SWEET PEPPER
 export default {
   unit: "gram",
-  value: "sweetPepper",
+  value: "billPepper",
   label: "🫑 Sweet Pepper",
   portionWeight: 100,
   mealOrderPriority: null,

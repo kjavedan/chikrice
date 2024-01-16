@@ -113,19 +113,20 @@
           <p class="step-question" v-if="step === 3">
             How many calories do you need?
           </p>
+
           <!-- STEP_4 -->
           <p class="step-question" v-if="step === 4">
-            Confirming your macros
-            <a href="#">What is <b>macros</b>?</a>
+            Select your <b>Proteins</b>
+            <a href="#"> What you need to consider when selecting? </a>
           </p>
           <!-- STEP_5 -->
           <p class="step-question" v-if="step === 5">
-            Select your <b>Proteins</b>
+            Select your <b>Main Carbs</b>
             <a href="#"> What you need to consider when selecting? </a>
           </p>
           <!-- STEP_6 -->
           <p class="step-question" v-if="step === 6">
-            Select your <b>Carbs</b>
+            Select your <b>Fruits</b>
             <a href="#"> What you need to consider when selecting? </a>
           </p>
           <!-- STEP_7 -->
@@ -149,14 +150,14 @@
             <!-- STEP_1 -->
             <div class="goals-wrapper" v-if="step === 1">
               <div
-                :class="['goal-option', { 'selected': data?.goal === 'lose weight' }]"
-                @click="data.goal= 'lose weight'"
+                :class="['goal-option', { 'selected': data?.goal === 'loseWeight' }]"
+                @click="data.goal= 'loseWeight'"
               >
                 Lose weight
               </div>
               <div
-                :class="['goal-option', { 'selected': data?.goal === 'gain weight' }]"
-                @click="data.goal= 'gain weight'"
+                :class="['goal-option', { 'selected': data?.goal === 'gainWeight' }]"
+                @click="data.goal= 'gainWeight'"
               >
                 Gain weight
               </div>
@@ -213,60 +214,7 @@
             </small>
 
             <!-- STEP_4 -->
-            <div class="macros-wrapper" v-if="step === 4">
-              <p>
-                We recommend you the following ratio base on you goal
-                (<b>{{data.goal}}</b>) & your calories (<b>{{data.calories}}</b>
-                cal).
-              </p>
-
-              <ul>
-                <li class="protein">40% Proteins</li>
-                <li class="carb">40% Carbs</li>
-                <li class="fat">20% Fats</li>
-              </ul>
-
-              <p>You steel can change it to what you might have in mind.</p>
-
-              <!-- Inputs using v-for -->
-              <div class="inputs">
-                <div
-                  class="input-text-wrapper"
-                  v-for="macro in [{label: 'Proteins', model: 'proteins'},
-                   {label: 'Carbs', model: 'carbs'},
-                   {label: 'Fats', model: 'fats'}]"
-                >
-                  <label :for="macro.model" style="font-weight: bold"
-                    >{{ macro.label }}</label
-                  >
-                  <div class="input-option-select">
-                    <input
-                      min="0"
-                      v-model="data.macros[macro.model]"
-                      :id="macro.model"
-                      type="number"
-                      class="input-text"
-                      :placeholder="macro.label.toLowerCase()"
-                    />
-                    <div class="option-select">
-                      <div
-                        class="option-select-btn"
-                        style="cursor: unset; width: 30px"
-                      >
-                        <span class="Unit">%</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- PERCENTAGE ERRO -->
-              <small class="protein">
-                {{stepError == 4 ? macrosError : ''}}
-              </small>
-            </div>
-            <!-- STEP_5 -->
-            <div class="proteins-wrapper" v-if="step === 5">
+            <div class="proteins-wrapper" v-if="step === 4">
               <!-- CHECKBOXES FOR PROTEIN OPTIONS -->
               <div
                 class="input-checkbox"
@@ -285,12 +233,12 @@
                 >
               </div>
               <small class="protein">
-                {{stepError === 5 ? "At least 2 Protein is required":""}}
+                {{stepError === 4 ? "At least 2 Protein is required":""}}
               </small>
             </div>
 
-            <!-- STEP_6 -->
-            <div class="carbs-wrapper" v-if="step === 6">
+            <!-- STEP_5 -->
+            <div class="carbs-wrapper" v-if="step === 5">
               <!-- CHECKBOXES FOR CARB OPTIONS -->
               <div
                 class="input-checkbox"
@@ -307,7 +255,29 @@
                 <label :for="carbOption.value">{{carbOption.label}}</label>
               </div>
               <small class="protein">
-                {{stepError === 6 ? "At least 2 Carbs is required":""}}
+                {{stepError === 5 ? "At least 2 Carbs is required":""}}
+              </small>
+            </div>
+
+            <!-- STEP_6 -->
+            <div class="carbs-wrapper" v-if="step === 6">
+              <!-- CHECKBOXES FOR CARB OPTIONS -->
+              <div
+                class="input-checkbox"
+                v-for="fruitOption in fruitsOptions"
+                :key="fruitOption.value"
+              >
+                <input
+                  type="checkbox"
+                  :id="fruitOption.value"
+                  :name="fruitOption.value"
+                  v-model="data.fruits"
+                  :value="fruitOption.value"
+                />
+                <label :for="fruitOption.value">{{fruitOption.label}}</label>
+              </div>
+              <small class="protein">
+                {{stepError === 6 ? "At least 2 Fruits is required":""}}
               </small>
             </div>
 
@@ -413,18 +383,18 @@
             How we use your calories with your goal to write a practical meal
             plan for you ->
           </a>
+
           <!-- STEP_4 -->
           <a href="#" class="step-link" v-if="step === 4"
-            >why macros are important in your diet and how we calculate
-            them-></a
+            >What is the role of <b>proteins</b> in diet -></a
           >
           <!-- STEP_5 -->
           <a href="#" class="step-link" v-if="step === 5"
-            >What is the role of <b>proteins</b> in diet -></a
+            >What is the role of <b>Carbs</b> in diet -></a
           >
           <!-- STEP_6 -->
           <a href="#" class="step-link" v-if="step === 6"
-            >What is the role of <b>Carbs</b> in diet -></a
+            >What is the role of <b>Fruits</b> in diet -></a
           >
           <!-- STEP_7 -->
           <a href="#" class="step-link" v-if="step === 7"

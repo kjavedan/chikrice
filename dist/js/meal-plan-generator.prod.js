@@ -7,17 +7,17 @@ createApp({
       mealsNumber: 4,
       calories: "2000",
       speed: "moderate",
-      goal: "lose weight",
+      goal: "loseWeight",
       fats: ["oliveOil", "regularOil"],
       macros: { proteins: "40", carbs: "40", fats: "20" },
-      carbs: ["oats", "rice", "potato", "apple", "orange"],
-      proteins: ["beef", "fish", "eggs", "chicken"],
-      vegetables: ["tomato", "lettuce", "broccoli", "cucumber", "sweetPepper"],
+      carbs: ["oats", "rice", "potato"],
+      fruits: ["apple", "orange"],
+      proteins: ["flankSteak", "fish", "eggs", "chicken"],
+      vegetables: ["tomato", "lettuce", "broccoli", "cucumber", "billPepper"],
     });
 
     const step = ref(1);
     const stepError = ref(0);
-    const macrosError = ref(0);
 
     const speedOptions = ref([
       { value: "slow", label: "🐌 Slow" },
@@ -26,14 +26,14 @@ createApp({
     ]);
 
     const proteinsOptions = ref([
-      { label: "🥩 Beef", value: "beef" },
       { label: "🐟 Fish", value: "fish" },
       { label: "🥚 Eggs", value: "eggs" },
       { label: "🍗 Chicken", value: "chicken" },
       { label: "🦃 Turkey ", value: "turkey " },
       { label: "🍳 Egg White", value: "eggWhite" },
-      { label: "🥛 Greek Yogurt", value: "greekYogurt" },
+      { label: "🥩 Flank Steak", value: "flankSteak" },
       { label: "🧋 Protein Why", value: "proteinWhy" },
+      { label: "🥛 Greek Yogurt", value: "greekYogurt" },
     ]);
 
     const carbsOptions = ref([
@@ -43,14 +43,16 @@ createApp({
       { label: "🍝 Pasta", value: "pasta" },
       { label: "🥖 Bread", value: "bread" },
       { label: "🥔 Potato", value: "potato" },
+      { label: "🍠 Sweet Potato", value: "sweetPotato" },
       { label: "🫘 beansLentils", value: "Beans & Lentils" },
+    ]);
+    const fruitsOptions = ref([
       { label: "🍏 Apple", value: "apple" },
       { label: "🍌 Banana", value: "banana" },
       { label: "🍇 Grapes", value: "grapes" },
       { label: "🍊 Orange", value: "orange" },
       { label: "🍍 Pineapple", value: "pineapple" },
       { label: "🍓 Strawberry", value: "strawberry" },
-      { label: "🍠 Sweet Potato", value: "sweetPotato" },
     ]);
 
     const fatsOptions = ref([
@@ -71,7 +73,7 @@ createApp({
       { label: "🍆 Eggplant", value: "eggplant" },
       { label: "🥒 Cucumber", value: "cucumber" },
       { label: "🫛 Green Beans", value: "greanBeans" },
-      { label: "🫑 Sweet Pepper", value: "sweetPepper" },
+      { label: "🫑 Bill Pepper", value: "billPepper" },
     ]);
 
     // FUNCTIONS
@@ -80,7 +82,7 @@ createApp({
         step.value++;
       } else if (step.value == 9) {
         console.log(data.value);
-        window.location.href = "./meal-plan-results.html";
+        window.location.href = "../meal-plan-results.html";
       }
     };
 
@@ -131,37 +133,6 @@ createApp({
     );
 
     watch(
-      () => data.value.macros,
-      (newMacros) => {
-        const totalPercentage =
-          parseInt(newMacros.proteins) +
-          parseInt(newMacros.carbs) +
-          parseInt(newMacros.fats);
-
-        if (totalPercentage !== 100) {
-          stepError.value = 4;
-          macrosError.value = "Total percentage must be 100%!";
-        } else if (parseInt(newMacros.proteins) < 5) {
-          stepError.value = 4;
-          macrosError.value = "Proteins must be minimum of 5%";
-        } else if (parseInt(newMacros.carbs) < 5) {
-          stepError.value = 4;
-          macrosError.value = "Carbs must be minimum of 5%";
-        } else if (
-          parseInt(newMacros.fats) < 5 ||
-          parseInt(newMacros.fats) > 40
-        ) {
-          stepError.value = 4;
-          macrosError.value = "Fats must be between 5% and 40%";
-        } else {
-          stepError.value = 0;
-          macrosError.value = "";
-        }
-      },
-      { deep: true }
-    );
-
-    watch(
       () => data.value.calories,
       (newCalories) => {
         stepError.value = Number(newCalories) < 1200 ? 3 : 0;
@@ -178,10 +149,12 @@ createApp({
 
     const stepToPropertyName = (stepValue) => {
       switch (stepValue) {
-        case 5:
+        case 4:
           return "proteins";
-        case 6:
+        case 5:
           return "carbs";
+        case 5:
+          return "fruits";
         case 7:
           return "fats";
         case 8:
@@ -214,10 +187,10 @@ createApp({
       onBack,
       onNext,
       stepError,
-      macrosError,
       fatsOptions,
       speedOptions,
       carbsOptions,
+      fruitsOptions,
       proteinsOptions,
       vegetablesOptions,
     };

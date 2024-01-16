@@ -9,10 +9,18 @@ export default {
 
   // NUTRIENT_FACTS
   nutrientFacts: {
-    calories: 206,
+    calories: 117,
     protein: 22,
     carbs: 0,
-    fat: 13,
+    fat: 3,
+  },
+
+  //RAW NUTRIENT_FACTS
+  nutrientFactsRaw: {
+    calories: 120,
+    protein: 19,
+    carbs: 0,
+    fat: 6,
   },
 
   // RELATIVES

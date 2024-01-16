@@ -64,10 +64,10 @@
               </div>
               <div>
                 <h5>Goal</h5>
-                <p>Lose weight</p>
+                <p>{{userInputs?.goal}}</p>
               </div>
               <div>
-                <h5>Estemated to lose</h5>
+                <h5>Estemated to {{userInputs?.goal}}</h5>
                 <p>
                   <b>(1 - 2)kg</b> <small>in</small> <b>1</b>
                   <small> month</small>
@@ -77,14 +77,25 @@
             <div class="right">
               <div>
                 <h5>Caloris</h5>
-                <p><b>1987</b> <small>cal/day</small></p>
+                <p>
+                  <b>{{mealPlanSummary?.calories}}</b> <small>cal/day</small>
+                </p>
               </div>
               <div>
                 <h5 class="macros-title">Macros</h5>
                 <ul>
-                  <li class="protein">40% Protein -> <b>240g</b></li>
-                  <li class="carb">40% Carbs -> <b>240g</b></li>
-                  <li class="fat">20% Fats -> <b>50g</b></li>
+                  <li class="protein">
+                    {{userInputs?.macros?.proteins}}% Protein ->
+                    <b>{{mealPlanSummary?.macros.pro?.amount}}g</b>
+                  </li>
+                  <li class="carb">
+                    {{userInputs?.macros?.carbs}}% Carbs ->
+                    <b>{{mealPlanSummary?.macros.carb?.amount}}g</b>
+                  </li>
+                  <li class="fat">
+                    {{userInputs?.macros?.fats}}% Fats ->
+                    <b>{{mealPlanSummary?.macros.fat?.amount}}g</b>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -208,7 +219,7 @@
       </div>
     </div>
 
-    <script type="module" src="./js/meal-plan-results.prod.js"></script>
+    <script type="module" src="./js/meal-plan-results/index.prod.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </body>
 </html>

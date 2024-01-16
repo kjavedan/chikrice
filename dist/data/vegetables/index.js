@@ -8,7 +8,7 @@ import zucchini from "./zucchini.js";
 import eggplant from "./eggplant.js";
 import cucumber from "./cucumber.js";
 import greenBeans from "./greenBeans.js";
-import sweetPepper from "./sweetPepper.js";
+import billPepper from "./billPepper.js";
 
 export default {
   onion,
@@ -21,5 +21,5 @@ export default {
   eggplant,
   cucumber,
   greenBeans,
-  sweetPepper,
+  billPepper,
 };

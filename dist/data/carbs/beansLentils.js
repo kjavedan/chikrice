@@ -22,7 +22,7 @@ export default {
       "onion",
       "greenBeans",
       "carrots",
-      "sweetPepper",
+      "billPepper",
       "broccoli",
       "lettuce",
       "tomato",

@@ -14,6 +14,14 @@ export default {
     carbs: 0,
     fat: 3.6,
 
+    //RAW NUTRIENT_FACTS
+    nutrientFactsRaw: {
+      calories: 120,
+      protein: 26,
+      carbs: 0,
+      fat: 2,
+    },
+
     // RELATIVES
     relatives: {
       carbs: ["rice", "potato", "sweetPotato", "pasta", "bread"],
