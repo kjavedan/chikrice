@@ -13,11 +13,14 @@ export default {
     carbs: 8.3,
     fat: 0.2,
   },
-
-  // RELATIVES
-  relatives: {
-    proteins: ["greekYogurt", "proteinWhy"],
-    fats: [],
-    vegetables: ["cucumber"],
+  // NUTRIENT_FACTS RAW
+  nutrientFactsRaw: {
+    calories: 43,
+    protein: 1,
+    carbs: 8.3,
+    fat: 0.2,
   },
+
+  // To decide whether to calculate raw weight or not
+  isRaw: true,
 };

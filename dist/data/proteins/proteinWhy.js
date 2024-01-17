@@ -15,18 +15,9 @@ export default {
     fat: 1,
   },
 
-  // RELATIVES
-  relatives: {
-    carbs: [
-      "oats",
-      "apple",
-      "banana",
-      "grapes",
-      "orange",
-      "pineapple",
-      "stawberry",
-    ],
-    fats: [],
-    vegetables: [],
-  },
+  // To determine its percentage in the meal plan
+  type: "static",
+
+  // To decide whether to calculate raw weight or not
+  isRaw: false,
 };

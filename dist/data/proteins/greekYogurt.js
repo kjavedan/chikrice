@@ -15,10 +15,9 @@ export default {
     fat: 0,
   },
 
-  // RELATIVES
-  relatives: {
-    carbs: ["bread", "apple", "banana", "grapes", "pineapple", "stawberry"],
-    fats: [],
-    vegetables: ["cucumber"],
-  },
+  // To determine its percentage in the meal plan
+  type: "static",
+
+  // To decide whether to calculate raw weight or not
+  isRaw: false,
 };

@@ -14,18 +14,14 @@ export default {
     fat: 0.1,
   },
 
-  // RELATIVES
-  relatives: {
-    proteins: [
-      "beef",
-      "fish",
-      "eggs",
-      "chicken",
-      "eggWhite",
-      "greekYogurt",
-      "proteinWhy",
-    ],
-    carbs: ["rice", "potato", "sweetPotato", "bread", "beansLentils"],
-    fats: ["oliveOil", "regularOil", "avocado"],
+  // NUTRIENT_FACTS RAW
+  nutrientFactsRaw: {
+    calories: 5,
+    protein: 0.5,
+    carbs: 1,
+    fat: 0.1,
   },
+
+  // To decide whether to calculate raw weight or not
+  isRaw: true,
 };

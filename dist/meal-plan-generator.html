@@ -98,9 +98,9 @@
           <div class="progress-bar">
             <div
               class="progress-indicator"
-              :style="{ width: (100 / 8.4) * step + '%' }"
+              :style="{ width: (100 / 10.4) * step + '%' }"
             ></div>
-            <span class="step-label">{{ step * 11 }}%</span>
+            <span class="step-label">{{ step * 10 }}%</span>
           </div>
 
           <!-- STEP_1 -->
@@ -113,34 +113,38 @@
           <p class="step-question" v-if="step === 3">
             How many calories do you need?
           </p>
-
           <!-- STEP_4 -->
           <p class="step-question" v-if="step === 4">
+            Confirming your macros
+            <a href="#">What is <b>macros</b>?</a>
+          </p>
+          <!-- STEP_4 -->
+          <p class="step-question" v-if="step === 5">
             Select your <b>Proteins</b>
             <a href="#"> What you need to consider when selecting? </a>
           </p>
           <!-- STEP_5 -->
-          <p class="step-question" v-if="step === 5">
+          <p class="step-question" v-if="step === 6">
             Select your <b>Main Carbs</b>
             <a href="#"> What you need to consider when selecting? </a>
           </p>
           <!-- STEP_6 -->
-          <p class="step-question" v-if="step === 6">
+          <p class="step-question" v-if="step === 7">
             Select your <b>Fruits</b>
             <a href="#"> What you need to consider when selecting? </a>
           </p>
           <!-- STEP_7 -->
-          <p class="step-question" v-if="step === 7">
+          <p class="step-question" v-if="step === 8">
             Select your <b>Fats</b>
             <a href="#"> What you need to consider when selecting? </a>
           </p>
           <!-- STEP_8 -->
-          <p class="step-question" v-if="step === 8">
+          <p class="step-question" v-if="step === 9">
             Select your <b>Vegetables</b>
             <a href="#"> What you need to consider when selecting? </a>
           </p>
           <!-- STEP_9 -->
-          <p class="step-question" v-if="step === 9">
+          <p class="step-question" v-if="step === 10">
             How many meals you want us to break up your plan?
             <a href="#"> why we recommend <b>4-5 meals</b>? </a>
           </p>
@@ -214,7 +218,63 @@
             </small>
 
             <!-- STEP_4 -->
-            <div class="proteins-wrapper" v-if="step === 4">
+            <div class="macros-wrapper" v-if="step === 4">
+              <p>
+                We recommend you the following ratio base on you goal
+                (<b>{{data.goal}}</b>) & your calories (<b>{{data.calories}}</b>
+                cal).
+              </p>
+
+              <ul>
+                <li class="protein">
+                  {{data.macros[data.goal].proteins}}% Proteins
+                </li>
+                <li class="carb">{{data.macros[data.goal].carbs}}% Carbs</li>
+                <li class="fat">{{data.macros[data.goal].fats}}% Fats</li>
+              </ul>
+
+              <p>You steel can change it to what you might have in mind.</p>
+
+              <!-- Inputs using v-for -->
+              <div class="inputs">
+                <div
+                  class="input-text-wrapper"
+                  v-for="macro in [{label: 'Proteins', model: 'proteins'},
+                   {label: 'Carbs', model: 'carbs'},
+                   {label: 'Fats', model: 'fats'}]"
+                >
+                  <label :for="macro.model" style="font-weight: bold"
+                    >{{ macro.label }}</label
+                  >
+                  <div class="input-option-select">
+                    <input
+                      min="0"
+                      v-model="data.macros[data.goal][macro.model]"
+                      :id="macro.model"
+                      type="number"
+                      class="input-text"
+                      :placeholder="macro.label.toLowerCase()"
+                    />
+                    <div class="option-select">
+                      <div
+                        class="option-select-btn"
+                        style="cursor: unset; width: 30px"
+                      >
+                        <span class="Unit">%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PERCENTAGE ERRO -->
+              <small class="protein">
+                {{stepError == 4 ? macrosError : ''}}
+              </small>
+            </div>
+
+            <!-- STEP_5 -->
+            <div class="proteins-wrapper" v-if="step === 5">
               <!-- CHECKBOXES FOR PROTEIN OPTIONS -->
               <div
                 class="input-checkbox"
@@ -233,12 +293,12 @@
                 >
               </div>
               <small class="protein">
-                {{stepError === 4 ? "At least 2 Protein is required":""}}
+                {{stepError === 5 ? "At least 2 Protein is required":""}}
               </small>
             </div>
 
-            <!-- STEP_5 -->
-            <div class="carbs-wrapper" v-if="step === 5">
+            <!-- STEP_6 -->
+            <div class="carbs-wrapper" v-if="step === 6">
               <!-- CHECKBOXES FOR CARB OPTIONS -->
               <div
                 class="input-checkbox"
@@ -255,12 +315,12 @@
                 <label :for="carbOption.value">{{carbOption.label}}</label>
               </div>
               <small class="protein">
-                {{stepError === 5 ? "At least 2 Carbs is required":""}}
+                {{stepError === 6 ? "At least 2 Carbs is required":""}}
               </small>
             </div>
 
-            <!-- STEP_6 -->
-            <div class="carbs-wrapper" v-if="step === 6">
+            <!-- STEP_7 -->
+            <div class="carbs-wrapper" v-if="step === 7">
               <!-- CHECKBOXES FOR CARB OPTIONS -->
               <div
                 class="input-checkbox"
@@ -277,12 +337,12 @@
                 <label :for="fruitOption.value">{{fruitOption.label}}</label>
               </div>
               <small class="protein">
-                {{stepError === 6 ? "At least 2 Fruits is required":""}}
+                {{stepError === 7 ? "At least 2 Fruits is required":""}}
               </small>
             </div>
 
-            <!-- STEP_7 -->
-            <div class="fats-wrapper" v-if="step === 7">
+            <!-- STEP_8 -->
+            <div class="fats-wrapper" v-if="step === 8">
               <!-- CHECKBOXES FOR FAT OPTIONS -->
               <div
                 class="input-checkbox"
@@ -299,12 +359,12 @@
                 <label :for="fatOption.value">{{fatOption.label}}</label>
               </div>
               <small class="protein">
-                {{stepError === 7 ? "At least 2 Fat is required":""}}
+                {{stepError === 8 ? "At least 2 Fat is required":""}}
               </small>
             </div>
 
-            <!-- STEP_8 -->
-            <div class="vegetables-wrapper" v-if="step === 8">
+            <!-- STEP_9 -->
+            <div class="vegetables-wrapper" v-if="step === 9">
               <!-- CHECKBOXES FOR VEGETABLE OPTIONS -->
               <div
                 class="input-checkbox"
@@ -323,12 +383,12 @@
                 >
               </div>
               <small class="protein">
-                {{stepError === 8 ? "At least 2 Vegetable is required":""}}
+                {{stepError === 9 ? "At least 2 Vegetable is required":""}}
               </small>
             </div>
 
-            <!-- STEP_9 -->
-            <div v-if="step === 9">
+            <!-- STEP_10 -->
+            <div v-if="step === 10">
               <!-- Radio Group for Meals -->
               <div class="radio-group-wrapper">
                 <p>Meals</p>
@@ -346,24 +406,6 @@
                   </div>
                 </div>
               </div>
-
-              <!-- Radio Group for Snacks -->
-              <!-- <div class="radio-group-wrapper">
-                <p>Snacks</p>
-                <div class="input-radio-group">
-                  <div class="radio" v-for="snack in [1, 2, 3]" :key="snack">
-                    <input
-                      type="radio"
-                      :value="snack"
-                      :name="'snacks'"
-                      class="custom-radio"
-                      :id="'snack' + snack"
-                      v-model="data.snackNumber"
-                    />
-                    <label :for="'snack' + snack">{{ snack }}</label>
-                  </div>
-                </div>
-              </div> -->
             </div>
           </div>
 
@@ -383,29 +425,33 @@
             How we use your calories with your goal to write a practical meal
             plan for you ->
           </a>
-
           <!-- STEP_4 -->
           <a href="#" class="step-link" v-if="step === 4"
-            >What is the role of <b>proteins</b> in diet -></a
+            >why macros are important in your diet and how we calculate
+            them-></a
           >
           <!-- STEP_5 -->
           <a href="#" class="step-link" v-if="step === 5"
-            >What is the role of <b>Carbs</b> in diet -></a
+            >What is the role of <b>proteins</b> in diet -></a
           >
           <!-- STEP_6 -->
           <a href="#" class="step-link" v-if="step === 6"
-            >What is the role of <b>Fruits</b> in diet -></a
+            >What is the role of <b>Carbs</b> in diet -></a
           >
           <!-- STEP_7 -->
           <a href="#" class="step-link" v-if="step === 7"
-            >What is the role of <b>Fats</b> in diet -></a
+            >What is the role of <b>Fruits</b> in diet -></a
           >
           <!-- STEP_8 -->
           <a href="#" class="step-link" v-if="step === 8"
-            >What is the role of <b>Vegetables</b> in diet -></a
+            >What is the role of <b>Fats</b> in diet -></a
           >
           <!-- STEP_9 -->
           <a href="#" class="step-link" v-if="step === 9"
+            >What is the role of <b>Vegetables</b> in diet -></a
+          >
+          <!-- STEP_10 -->
+          <a href="#" class="step-link" v-if="step === 10"
             >What is the <b>difference</b> between the number of meals in diet
             -></a
           >
@@ -417,7 +463,7 @@
               @click="onNext"
               :disabled="stepError"
             >
-              {{ step === 9 ? "Generate" : "Next"}}
+              {{ step === 10 ? "Generate" : "Next"}}
             </button>
           </div>
         </div>

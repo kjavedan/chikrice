@@ -2,6 +2,7 @@
 import carbsBank from "../../data/carbs/index.js";
 import fruitsBank from "../../data/fruits/index.js";
 import vegetablesBank from "../../data/vegetables/index.js";
+import { updateAvailableMacros } from "./common.js";
 import { CARBS_SPLIT_RATIO, SPRINT_DAYS } from "./constants.js";
 
 // Function to add carbs to the meal plan based on user inputs
@@ -40,17 +41,6 @@ export const addCarbs = (
     userCarbsList
   );
 
-  const updateAvailableMacros = (itemWeight, itemInfo) => {
-    const { carbs, protein, fat } = itemInfo;
-    const fatToDecrease = ((itemWeight / 100) * fat).toFixed(0);
-    const carbsToDecrease = ((itemWeight / 100) * carbs).toFixed(0);
-    const proteinToDecrease = ((itemWeight / 100) * protein).toFixed(0);
-
-    availableMacros.value.fat -= fatToDecrease;
-    availableMacros.value.pro -= proteinToDecrease;
-    availableMacros.value.carbs -= carbsToDecrease;
-  };
-
   // Function to generate a grocery list for a specific carb type
   const generateCarbsGroceryList = (
     carbsBank,
@@ -58,14 +48,32 @@ export const addCarbs = (
     carbsAmountToConvert
   ) =>
     userCarbsList.map((item) => {
-      const itemWeight = Math.round(
-        (carbsAmountToConvert / carbsBank[item].nutrientFacts.carbs) * 100
+      const itemDetails = carbsBank[item];
+      let rawWeight = 0;
+      let cookedWeight = 0;
+
+      if (itemDetails.isRaw) {
+        rawWeight = Math.round(
+          (carbsAmountToConvert / itemDetails.nutrientFactsRaw.carbs) * 100
+        );
+      }
+
+      cookedWeight = Math.round(
+        (carbsAmountToConvert / itemDetails.nutrientFacts.carbs) * 100
       );
-      updateAvailableMacros(itemWeight, carbsBank[item].nutrientFacts);
+      updateAvailableMacros(
+        cookedWeight,
+        itemDetails.nutrientFacts,
+        availableMacros
+      );
 
       //ADD THE GROCCERY WEIGHT BASE ON SPRINT PERIOD
+      // ! make change we need raw, cooked weight
       return {
-        [item]: itemWeight * SPRINT_DAYS,
+        value: itemDetails.value,
+        label: itemDetails.label,
+        rawWeight: parseInt(rawWeight.toFixed(0)) * SPRINT_DAYS,
+        cookedWeight: parseInt(cookedWeight.toFixed(0)) * SPRINT_DAYS,
       };
     });
 

@@ -14,7 +14,7 @@ export const calculatePlanSummary = (goal, calories, speed, macros) => {
   }
 
   // CALC MACROS
-  const { proteins: proRatio, carbs: carbRatio, fats: fatRatio } = macros;
+  const { proteins: proRatio, carbs: carbRatio, fats: fatRatio } = macros[goal];
 
   const proCalories = calcMacrosCalorie(proRatio, processedCalories);
   const carbCalories = calcMacrosCalorie(carbRatio, processedCalories);

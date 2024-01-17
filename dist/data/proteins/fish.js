@@ -2,7 +2,7 @@
 export default {
   limit: null,
   unit: "gram",
-  value: "beef",
+  value: "fish",
   label: "🐟 Fish",
   portionWeight: 100,
   mealOrderPriority: 1,
@@ -23,22 +23,9 @@ export default {
     fat: 6,
   },
 
-  // RELATIVES
-  relatives: {
-    carbs: ["rice", "potato", "sweetPotato", "bread", "beansLentils"],
-    fats: ["oliveOil", "regularOil", "avocado"],
-    vegetables: [
-      "onion",
-      "broccoli",
-      "greenBeans",
-      "sweetPepper",
-      "zucchini",
-      "eggplant",
-      "lettuce",
-      "tomato",
-      "cucumber",
-      "carrots",
-      "spinach",
-    ],
-  },
+  // To determine its percentage in the meal plan
+  type: "static",
+
+  // To decide whether to calculate raw weight or not
+  isRaw: true,
 };

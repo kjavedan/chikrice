@@ -9,7 +9,10 @@ createApp({
       speed: "moderate",
       goal: "loseWeight",
       fats: ["oliveOil", "regularOil"],
-      macros: { proteins: "40", carbs: "40", fats: "20" },
+      macros: {
+        loseWeight: { proteins: "35", carbs: "40", fats: "25" },
+        gainWeight: { proteins: "30", carbs: "40", fats: "30" },
+      },
       carbs: ["oats", "rice", "potato"],
       fruits: ["apple", "orange"],
       proteins: ["flankSteak", "fish", "eggs", "chicken"],
@@ -18,7 +21,7 @@ createApp({
 
     const step = ref(1);
     const stepError = ref(0);
-
+    const macrosError = ref(0);
     const speedOptions = ref([
       { value: "slow", label: "🐌 Slow" },
       { value: "moderate", label: "🚶 Moderate (recommended)" },
@@ -32,7 +35,7 @@ createApp({
       { label: "🦃 Turkey ", value: "turkey " },
       { label: "🍳 Egg White", value: "eggWhite" },
       { label: "🥩 Flank Steak", value: "flankSteak" },
-      { label: "🧋 Protein Why", value: "proteinWhy" },
+      { label: "🧋 Protein Whey", value: "proteinWhey" },
       { label: "🥛 Greek Yogurt", value: "greekYogurt" },
     ]);
 
@@ -78,9 +81,9 @@ createApp({
 
     // FUNCTIONS
     const onNext = () => {
-      if (step.value < 9) {
+      if (step.value < 10) {
         step.value++;
-      } else if (step.value == 9) {
+      } else if (step.value == 10) {
         console.log(data.value);
         window.location.href = "../meal-plan-results.html";
       }
@@ -139,8 +142,40 @@ createApp({
       }
     );
 
+    watch(
+      () => data.value.macros,
+      (newVal) => {
+        const newMacros = newVal[data.value.goal];
+        const totalPercentage =
+          parseInt(newMacros.proteins) +
+          parseInt(newMacros.carbs) +
+          parseInt(newMacros.fats);
+
+        if (totalPercentage !== 100) {
+          stepError.value = 4;
+          macrosError.value = "Total percentage must be 100%!";
+        } else if (parseInt(newMacros.proteins) < 20) {
+          stepError.value = 4;
+          macrosError.value = "Proteins must be minimum of 20%";
+        } else if (parseInt(newMacros.carbs) < 10) {
+          stepError.value = 4;
+          macrosError.value = "Carbs must be minimum of 10%";
+        } else if (
+          parseInt(newMacros.fats) < 15 ||
+          parseInt(newMacros.fats) > 40
+        ) {
+          stepError.value = 4;
+          macrosError.value = "Fats must be between 15% and 40%";
+        } else {
+          stepError.value = 0;
+          macrosError.value = "";
+        }
+      },
+      { deep: true }
+    );
+
     const validateStep = (stepValue) => {
-      if (stepValue >= 5 && stepValue <= 8) {
+      if (stepValue >= 5 && stepValue <= 9) {
         const propertyName = stepToPropertyName(stepValue);
         return data.value[propertyName]?.length < 2 ? stepValue : 0;
       }
@@ -149,15 +184,15 @@ createApp({
 
     const stepToPropertyName = (stepValue) => {
       switch (stepValue) {
-        case 4:
+        case 5:
           return "proteins";
-        case 5:
+        case 6:
           return "carbs";
-        case 5:
-          return "fruits";
         case 7:
-          return "fats";
+          return "fruits";
         case 8:
+          return "fats";
+        case 9:
           return "vegetables";
         default:
           return "";
@@ -173,12 +208,16 @@ createApp({
       () => (stepError.value = validateStep(6))
     );
     watch(
-      () => data.value.fats,
+      () => data.value.fruits,
       () => (stepError.value = validateStep(7))
     );
     watch(
-      () => data.value.vegetables,
+      () => data.value.fats,
       () => (stepError.value = validateStep(8))
+    );
+    watch(
+      () => data.value.vegetables,
+      () => (stepError.value = validateStep(9))
     );
 
     return {
@@ -187,6 +226,7 @@ createApp({
       onBack,
       onNext,
       stepError,
+      macrosError,
       fatsOptions,
       speedOptions,
       carbsOptions,

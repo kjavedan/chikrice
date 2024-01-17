@@ -1,4 +1,3 @@
-// PASTA
 export default {
   unit: "gram",
   value: "pasta",
@@ -14,20 +13,14 @@ export default {
     fat: 1.1,
   },
 
-  // RELATIVES
-  relatives: {
-    proteins: ["chicken", "fish"],
-    fats: ["oliveOil", "regularOil"],
-    vegetables: [
-      "onion",
-      "greenBeans",
-      "sweetPepper",
-      "broccoli",
-      "zucchini",
-      "eggplant",
-      "lettuce",
-      "tomato",
-      "cucumber",
-    ],
+  // NUTRIENT_FACTS_RAW
+  nutrientFactsRaw: {
+    calories: 371,
+    protein: 12,
+    carbs: 73,
+    fat: 1.5,
   },
+
+  // To decide whether to calculate raw weight or not
+  isRaw: true,
 };

@@ -22,21 +22,6 @@ export default {
     fat: 0.5,
   },
 
-  // RELATIVES
-  relatives: {
-    proteins: ["beef", "chicken"],
-    fats: ["oliveOil", "regularOil", "avocado"],
-    vegetables: [
-      "onion",
-      "greenBeans",
-      "carrots",
-      "sweetPepper",
-      "broccoli",
-      "lettuce",
-      "tomato",
-      "cucumber",
-      "zucchini",
-      "eggplant",
-    ],
-  },
+  // To decide whether to calculate raw weight or not
+  isRaw: true,
 };

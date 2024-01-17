@@ -15,19 +15,9 @@ export default {
     fat: 11,
   },
 
-  // RELATIVES
-  relatives: {
-    carbs: ["oats", "potato", "bread", "rice", "sweetPotato"],
-    fats: ["olivOile", "regularOil", "avocado"],
-    vegetables: [
-      "onion",
-      "greenBeans",
-      "carrots",
-      "sweetPepper",
-      "broccoli",
-      "spinach",
-      "tomato",
-      "cucumber",
-    ],
-  },
+  // To determine its percentage in the meal plan
+  type: "static",
+
+  // To decide whether to calculate raw weight or not
+  isRaw: false,
 };

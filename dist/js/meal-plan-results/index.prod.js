@@ -4,6 +4,7 @@ import mealPlan from "../../data/mealPlan/index.js";
 import proteinsBank from "../../data/proteins/index.js";
 
 import { addCarbs } from "./addCarbs.js";
+import { addProteins } from "./addProteins.js";
 import { calculatePlanSummary } from "./calculatePlanSummary.js";
 
 createApp({
@@ -26,9 +27,10 @@ createApp({
       goal: userGoal,
       speed: dietSpeed,
       macros: userMacros,
-      calories: userCalories,
       carbs: userCarbsList,
       fruits: userFruitsList,
+      calories: userCalories,
+      proteins: userProteinsList,
       vegetables: userVegetablesList,
     } = userInputs.value;
 
@@ -50,7 +52,7 @@ createApp({
       };
 
       //STEP 3(ADD THE CARBS)
-      const grocceryList = addCarbs(
+      const carbsGroccery = addCarbs(
         userGoal,
         mealPlanSummary.value.macros,
         userCarbsList,
@@ -59,15 +61,28 @@ createApp({
         availableMacros
       );
 
-      console.log(availableMacros.value);
+      const fatsGroccery = [];
 
       //STEP 4 (ADD THE PROTEINS)
-      //STEP 5 (ADD THE FATS)
-      //SETP 6 (ADD THE VEGETABLES)
-      //SETP 6 (CALCULATE THE MACROS & CALORIES OF EACH MEAL)
-    };
+      const proteinsGroccery = addProteins(
+        userGoal,
+        userProteinsList,
+        availableMacros
+      );
 
-    const addProteins = () => {};
+      console.log(availableMacros.value);
+
+      //STEP 5 (ADD THE FATS)
+      //SETP 6 (CALCULATE THE MACROS & CALORIES OF EACH MEAL)
+
+      const grocceryList = {
+        fats: fatsGroccery,
+        carbs: carbsGroccery,
+        protiens: proteinsGroccery,
+      };
+
+      console.log(grocceryList);
+    };
 
     //HOOKS
     onBeforeMount(() => {

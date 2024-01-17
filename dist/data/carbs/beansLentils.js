@@ -14,21 +14,13 @@ export default {
     fat: 0.4,
   },
 
-  // RELATIVES
-  relatives: {
-    proteins: ["beef", "chicken"],
-    fats: ["oliveOil", "regularOil", "avocado"],
-    vegetables: [
-      "onion",
-      "greenBeans",
-      "carrots",
-      "billPepper",
-      "broccoli",
-      "lettuce",
-      "tomato",
-      "cucumber",
-      "zucchini",
-      "eggplant",
-    ],
+  nutrientFactsRaw: {
+    calories: 341,
+    protein: 21.6,
+    carbs: 63.4,
+    fat: 1.1,
   },
+
+  // To decide whether to calculate raw weight or not
+  isRaw: true,
 };

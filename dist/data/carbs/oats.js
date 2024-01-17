@@ -8,25 +8,20 @@ export default {
 
   // NUTRIENT_FACTS
   nutrientFacts: {
-    calories: 389,
-    protein: 16.9,
-    carbs: 66.3,
-    fat: 6.9,
+    calories: 379,
+    protein: 13,
+    carbs: 68,
+    fat: 6.5,
   },
 
-  // RELATIVES
-  relatives: {
-    proteins: ["eggs", "chicken"],
-    fats: ["nuts", "avocado"],
-    vegetables: [
-      "onion",
-      "greenBeans",
-      "carrots",
-      "sweetPepper",
-      "broccoli",
-      "spinach",
-      "tomato",
-      "cucumber",
-    ],
+  // NUTRIENT_FACTS RAW
+  nutrientFactsRaw: {
+    calories: 379,
+    protein: 13,
+    carbs: 68,
+    fat: 6.5,
   },
+
+  // To decide whether to calculate raw weight or not
+  isRaw: true,
 };

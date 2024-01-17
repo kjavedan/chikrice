@@ -85,15 +85,15 @@
                 <h5 class="macros-title">Macros</h5>
                 <ul>
                   <li class="protein">
-                    {{userInputs?.macros?.proteins}}% Protein ->
+                    {{userInputs?.macros[userInputs.goal].proteins}}% Protein ->
                     <b>{{mealPlanSummary?.macros.pro?.amount}}g</b>
                   </li>
                   <li class="carb">
-                    {{userInputs?.macros?.carbs}}% Carbs ->
+                    {{userInputs?.macros[userInputs.goal].carbs}}% Carbs ->
                     <b>{{mealPlanSummary?.macros.carb?.amount}}g</b>
                   </li>
                   <li class="fat">
-                    {{userInputs?.macros?.fats}}% Fats ->
+                    {{userInputs?.macros[userInputs.goal].fats}}% Fats ->
                     <b>{{mealPlanSummary?.macros.fat?.amount}}g</b>
                   </li>
                 </ul>
