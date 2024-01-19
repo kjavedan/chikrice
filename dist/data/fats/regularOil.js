@@ -13,23 +13,4 @@ export default {
     carbs: 0,
     fat: 100,
   },
-
-  // RELATIVES
-  relatives: {
-    proteins: ["beef", "fish", "eggs", "chicken", "proteinWhy"],
-    carbs: ["rice", "potato", "sweetPotato", "bread", "beansLentils"],
-    vegetables: [
-      "onion",
-      "broccoli",
-      "greenBeans",
-      "sweetPepper",
-      "zucchini",
-      "eggplant",
-      "lettuce",
-      "tomato",
-      "cucumber",
-      "carrots",
-      "spinach",
-    ],
-  },
 };

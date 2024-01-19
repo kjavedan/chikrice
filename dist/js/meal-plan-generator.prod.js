@@ -29,11 +29,12 @@ createApp({
     ]);
 
     const proteinsOptions = ref([
+      { label: "🥜 Nuts", value: "nuts" },
       { label: "🐟 Fish", value: "fish" },
       { label: "🥚 Eggs", value: "eggs" },
-      { label: "🍗 Chicken", value: "chicken" },
       { label: "🦃 Turkey ", value: "turkey " },
       { label: "🍳 Egg White", value: "eggWhite" },
+      { label: "🐔 Chicken Breast", value: "chicken" },
       { label: "🥩 Flank Steak", value: "flankSteak" },
       { label: "🧋 Protein Whey", value: "proteinWhey" },
       { label: "🥛 Greek Yogurt", value: "greekYogurt" },
@@ -58,18 +59,12 @@ createApp({
       { label: "🍓 Strawberry", value: "strawberry" },
     ]);
 
-    const fatsOptions = ref([
-      { label: "🥜 Nuts", value: "nuts" },
-      { label: "🥑 Avocado", value: "avocado" },
-      { label: "🫒 Olive Oil", value: "oliveOil" },
-      { label: "🌻 Regular Oil", value: "regularOil" },
-    ]);
-
     const vegetablesOptions = ref([
       { label: "🧅 Onion", value: "onion" },
       { label: "🍅 Tomato", value: "tomato" },
       { label: "🥕 Carrots", value: "carrots" },
       { label: "🥬 Lettuce", value: "lettuce" },
+      { label: "🥑 Avocado", value: "avocado" },
       { label: "🍃 Spinach", value: "spinach" },
       { label: "🥦 Broccoli", value: "broccoli" },
       { label: "🍠 Zucchini", value: "zucchini" },
@@ -81,9 +76,9 @@ createApp({
 
     // FUNCTIONS
     const onNext = () => {
-      if (step.value < 10) {
+      if (step.value < 9) {
         step.value++;
-      } else if (step.value == 10) {
+      } else if (step.value == 9) {
         console.log(data.value);
         window.location.href = "../meal-plan-results.html";
       }
@@ -175,7 +170,7 @@ createApp({
     );
 
     const validateStep = (stepValue) => {
-      if (stepValue >= 5 && stepValue <= 9) {
+      if (stepValue >= 5 && stepValue <= 8) {
         const propertyName = stepToPropertyName(stepValue);
         return data.value[propertyName]?.length < 2 ? stepValue : 0;
       }
@@ -191,8 +186,6 @@ createApp({
         case 7:
           return "fruits";
         case 8:
-          return "fats";
-        case 9:
           return "vegetables";
         default:
           return "";
@@ -211,13 +204,10 @@ createApp({
       () => data.value.fruits,
       () => (stepError.value = validateStep(7))
     );
-    watch(
-      () => data.value.fats,
-      () => (stepError.value = validateStep(8))
-    );
+
     watch(
       () => data.value.vegetables,
-      () => (stepError.value = validateStep(9))
+      () => (stepError.value = validateStep(8))
     );
 
     return {
@@ -227,7 +217,6 @@ createApp({
       onNext,
       stepError,
       macrosError,
-      fatsOptions,
       speedOptions,
       carbsOptions,
       fruitsOptions,

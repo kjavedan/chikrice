@@ -12,8 +12,6 @@ export const addProteins = (goal, userProteinsList, availableMacros) => {
   let staticProteinsPercentage = 0;
 
   userProteinsList.forEach((item) => {
-    console.log(item);
-
     if (proteinsBank[item].type != "static") {
       proteinsTypes.dynamic.push({ [item]: proteinsBank[item] });
     } else {
@@ -43,7 +41,6 @@ export const addProteins = (goal, userProteinsList, availableMacros) => {
     list.map((item) => {
       let rawWeight = 0;
       let cookedWeight = 0;
-      console.log(item.details.label, item.details.isRaw);
       if (item.details.isRaw) {
         rawWeight =
           (item.dailyProteinPortion / item.details.nutrientFactsRaw.protein) *
@@ -63,6 +60,7 @@ export const addProteins = (goal, userProteinsList, availableMacros) => {
         label: item.details.label,
         rawWeight: parseInt(rawWeight.toFixed(0)) * SPRINT_DAYS,
         cookedWeight: parseInt(cookedWeight.toFixed(0)) * SPRINT_DAYS,
+        isRaw: item.details.isRaw,
       };
     });
 

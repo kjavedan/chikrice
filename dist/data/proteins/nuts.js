@@ -1,26 +1,25 @@
-// FISH
+// NUTS
 export default {
-  limit: null,
   unit: "gram",
-  value: "fish",
-  label: "🐟 Fish",
+  value: "nuts",
+  label: "🥜 Nuts",
   portionWeight: 100,
-  mealOrderPriority: 1,
+  mealOrderPriority: null,
 
   // NUTRIENT_FACTS
   nutrientFacts: {
-    calories: 117,
-    protein: 22,
-    carbs: 0,
-    fat: 3,
+    calories: 607,
+    protein: 15,
+    carbs: 6.1,
+    fat: 58.7,
   },
 
-  //RAW NUTRIENT_FACTS
+  // NUTRIENT_FACTS RAW
   nutrientFactsRaw: {
-    calories: 120,
-    protein: 19,
-    carbs: 0,
-    fat: 3,
+    calories: 607,
+    protein: 15,
+    carbs: 6.1,
+    fat: 58.7,
   },
 
   // To determine its percentage in the meal plan

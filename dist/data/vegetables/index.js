@@ -3,6 +3,7 @@ import tomato from "./tomato.js";
 import carrots from "./carrots.js";
 import lettuce from "./lettuce.js";
 import spinach from "./spinach.js";
+import avocado from "./avocado.js";
 import broccoli from "./broccoli.js";
 import zucchini from "./zucchini.js";
 import eggplant from "./eggplant.js";
@@ -15,6 +16,7 @@ export default {
   tomato,
   carrots,
   lettuce,
+  avocado,
   spinach,
   broccoli,
   zucchini,

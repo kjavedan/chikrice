@@ -13,11 +13,4 @@ export default {
     carbs: 8.5,
     fat: 14.7,
   },
-
-  // RELATIVES
-  relatives: {
-    proteins: ["greekYogurt", "proteinWhy"],
-    carbs: ["banana"],
-    vegetables: ["spinach", "tomato", "bellPepper"],
-  },
 };

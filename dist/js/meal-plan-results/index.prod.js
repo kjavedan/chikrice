@@ -1,11 +1,11 @@
 const { createApp, ref, onBeforeMount } = Vue;
-import fatsBank from "../../data/fats/index.js";
 import mealPlan from "../../data/mealPlan/index.js";
-import proteinsBank from "../../data/proteins/index.js";
 
 import { addCarbs } from "./addCarbs.js";
+import { addFats } from "./addFats.js";
 import { addProteins } from "./addProteins.js";
 import { calculatePlanSummary } from "./calculatePlanSummary.js";
+import { SPRINT_DAYS } from "./constants.js";
 
 createApp({
   setup() {
@@ -27,6 +27,7 @@ createApp({
       goal: userGoal,
       speed: dietSpeed,
       macros: userMacros,
+      fats: userFatsList,
       carbs: userCarbsList,
       fruits: userFruitsList,
       calories: userCalories,
@@ -61,19 +62,23 @@ createApp({
         availableMacros
       );
 
-      const fatsGroccery = [];
-
       //STEP 4 (ADD THE PROTEINS)
       const proteinsGroccery = addProteins(
         userGoal,
         userProteinsList,
         availableMacros
       );
-
-      console.log(availableMacros.value);
+      const fatAvailable = parseInt(availableMacros.value.fat) * SPRINT_DAYS;
 
       //STEP 5 (ADD THE FATS)
-      //SETP 6 (CALCULATE THE MACROS & CALORIES OF EACH MEAL)
+      const fatsGroccery = [
+        {
+          value: "oil",
+          label: "🫒🌻 Any Type of Oil",
+          rawWeight: fatAvailable,
+          cookedWeight: fatAvailable,
+        },
+      ];
 
       const grocceryList = {
         fats: fatsGroccery,

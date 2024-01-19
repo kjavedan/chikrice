@@ -74,6 +74,7 @@ export const addCarbs = (
         label: itemDetails.label,
         rawWeight: parseInt(rawWeight.toFixed(0)) * SPRINT_DAYS,
         cookedWeight: parseInt(cookedWeight.toFixed(0)) * SPRINT_DAYS,
+        isRaw: itemDetails.isRaw,
       };
     });
 
@@ -96,10 +97,8 @@ export const addCarbs = (
 
   // Return the final carbs grocery list
   return {
-    carbs: {
-      main: mainCarbGrocery,
-      fruits: fruitsGrocery,
-      vegetables: vegetableGrocery,
-    },
+    main: mainCarbGrocery,
+    fruits: fruitsGrocery,
+    vegetables: vegetableGrocery,
   };
 };

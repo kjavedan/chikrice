@@ -33,6 +33,43 @@
     <title>Meal Plan Result - Chikrice</title>
   </head>
   <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="navbar">
+        <!-- Logo -->
+        <a href="./index.html" class="logo">
+          <img src="./assets/logo.webp" alt="Meal Plan Image" loading="lazy" />
+        </a>
+
+        <!-- Close Navbar -->
+        <div class="close-navbar"></div>
+
+        <!-- Menu Button (Mobile) -->
+        <div class="burger-menu">
+          <iconify-icon
+            icon="heroicons-outline:menu-alt-3"
+            width="32"
+            height="32"
+          ></iconify-icon>
+        </div>
+
+        <!-- Navigation Links (Bigger Screens) -->
+        <ul>
+          <li>
+            <a href="./meal-plan-generator.html">Meal Plan Generator</a>
+          </li>
+          <li>
+            <a href="./workout-plan-generator.html">Workout Plan Generator</a>
+          </li>
+          <li>
+            <a href="./bmr-calculator.html">BMR Calculator</a>
+          </li>
+          <li><a href="./faq.html">F&amp;Q</a></li>
+          <li><a href="./about.html">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
     <!-- Sections -->
     <div class="container" style="margin-bottom: 10rem">
       <!-- Section 1: Content for Meal Plan Generator -->
@@ -48,176 +85,151 @@
         >
       </section>
 
-      <div class="meal-plan-results">
-        <div id="meal-plan-results-app">
-          <!-- DOWNALOAD BTN -->
-          <div class="pdf-download-wrapper">
-            <button class="btn full-width">Download PDF</button>
-          </div>
-
-          <!-- SUMMARY BOX -->
-          <div class="meal-plan-result-summary">
-            <div class="left">
-              <div>
-                <h5>Time to commit</h5>
-                <p>1 month</p>
-              </div>
-              <div>
-                <h5>Goal</h5>
-                <p>{{userInputs?.goal}}</p>
-              </div>
-              <div>
-                <h5>Estemated to {{userInputs?.goal}}</h5>
-                <p>
-                  <b>(1 - 2)kg</b> <small>in</small> <b>1</b>
-                  <small> month</small>
-                </p>
-              </div>
-            </div>
-            <div class="right">
-              <div>
-                <h5>Caloris</h5>
-                <p>
-                  <b>{{mealPlanSummary?.calories}}</b> <small>cal/day</small>
-                </p>
-              </div>
-              <div>
-                <h5 class="macros-title">Macros</h5>
-                <ul>
-                  <li class="protein">
-                    {{userInputs?.macros[userInputs.goal].proteins}}% Protein ->
-                    <b>{{mealPlanSummary?.macros.pro?.amount}}g</b>
-                  </li>
-                  <li class="carb">
-                    {{userInputs?.macros[userInputs.goal].carbs}}% Carbs ->
-                    <b>{{mealPlanSummary?.macros.carb?.amount}}g</b>
-                  </li>
-                  <li class="fat">
-                    {{userInputs?.macros[userInputs.goal].fats}}% Fats ->
-                    <b>{{mealPlanSummary?.macros.fat?.amount}}g</b>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- MEAL -->
-          <div
-            class="meal"
-            v-for="(meal, index) in mealPlanResult"
-            :key="index"
-          >
-            <!-- MEAL WRAPPER -->
-            <div class="meal-wrapper">
-              <!-- MEAL HEADER -->
-              <div class="meal-header">
-                <div class="meal-header-title">
-                  <h2>Meal {{index + 1}}</h2>
-                  <p>Calories: <b>{{meal.calories}}</b></p>
+      <div id="meal-plan-results-app" class="meal-plan-results">
+        <div class="grid-box">
+          <div class="left-column">
+            <!-- SUMMARY BOX -->
+            <div class="meal-plan-result-summary">
+              <div class="left">
+                <div>
+                  <h5>Time to commit</h5>
+                  <p>1 month</p>
                 </div>
-                <div class="meal-header-macros">
+                <div>
+                  <h5>Goal</h5>
+                  <p>{{userInputs?.goal}}</p>
+                </div>
+                <div>
+                  <h5>Estemated to {{userInputs?.goal}}</h5>
+                  <p>
+                    <b>(1 - 2)kg</b> <small>in</small> <b>1</b>
+                    <small> month</small>
+                  </p>
+                </div>
+              </div>
+              <div class="right">
+                <div>
+                  <h5>Caloris</h5>
+                  <p>
+                    <b>{{mealPlanSummary?.calories}}</b> <small>cal/day</small>
+                  </p>
+                </div>
+                <div>
+                  <h5 class="macros-title">Macros</h5>
                   <ul>
                     <li class="protein">
-                      Pro <b>{{meal.macros.pro.value}}g</b>
+                      {{userInputs?.macros[userInputs.goal].proteins}}% Protein
+                      ->
+                      <b>{{mealPlanSummary?.macros.pro?.amount}}g</b>
                     </li>
                     <li class="carb">
-                      Carbs<b>{{meal.macros.carb.value}}g</b>
+                      {{userInputs?.macros[userInputs.goal].carbs}}% Carbs ->
+                      <b>{{mealPlanSummary?.macros.carb?.amount}}g</b>
                     </li>
-                    <li class="fat">Fats <b>{{meal.macros.fat.value}}g</b></li>
+                    <li class="fat">
+                      {{userInputs?.macros[userInputs.goal].fats}}% Fats ->
+                      <b>{{mealPlanSummary?.macros.fat?.amount}}g</b>
+                    </li>
                   </ul>
-                  <div class="macros-percentage-bar">
-                    <div
-                      class="left"
-                      :style="{width:meal.macros.pro.percentage +'%'}"
-                    ></div>
-                    <div
-                      class="middle"
-                      :style="{width:meal.macros.carb.percentage +'%'}"
-                    ></div>
-                    <div
-                      class="right"
-                      :style="{width:meal.macros.fat.percentage +'%'}"
-                    ></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="food-boxes-wrapper">
+              <!-- PROTEINS BOX -->
+
+              <div class="group-box">
+                <h2 class="group-title">ProteinsBox</h2>
+                <div class="food-boxes">
+                  <div class="food-box">
+                    <h3 class="food-box-title">BeefBox</h3>
+                    <div class="food-box-content">
+                      <span>🥩</span><span>🥩</span><span>🥩</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- CARBS BOX -->
+
+              <div class="group-box">
+                <h2 class="group-title">CarbsBoxs</h2>
+                <div class="food-boxes">
+                  <div class="food-box">
+                    <h3 class="food-box-title">BeefBox</h3>
+                    <div class="food-box-content">
+                      <span>🥩</span><span>🥩</span><span>🥩</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- VEGETABLES BOX -->
+
+              <div class="group-box">
+                <h2 class="group-title">VegetablesBoxs</h2>
+                <div class="food-boxes">
+                  <div class="food-box">
+                    <h3 class="food-box-title">BeefBox</h3>
+                    <div class="food-box-content">
+                      <span>🥩</span><span>🥩</span><span>🥩</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- SINGLE FOOD -->
+
+              <div class="group-box">
+                <h2 class="group-title">SingleFood</h2>
+                <div class="single-food-wrapper">
+                  <div class="single-food">
+                    <span>🥜 Nuts</span>
                   </div>
                 </div>
               </div>
             </div>
-            <!-- OPTIONS WRAPPER -->
-            <div
-              class="meal-options-wrapper"
-              v-for="(option, index) in meal.options"
-              :key="index"
-            >
-              <!-- OPTION -->
-              <div class="meal-option">
-                <div class="meal-option-header">
-                  <h3>Option {{index + 1}}</h3>
-                  <button class="btn-customize">Customize</button>
+          </div>
+          <div class="right-column">
+            <div class="grocery-list">
+              <h3 class="grocery-title">Grocery list (3 Days)</h3>
+              <div class="grocery-content">
+                <div class="grocery-group">
+                  <div class="grocery-group-title">Proteins</div>
+                  <div class="grocery-group-content">
+                    <div class="grocery-item-row">
+                      <p class="grocery-item-title">🥩 Beef</p>
+                      <span class="grocery-item-weight">300g</span>
+                    </div>
+                  </div>
                 </div>
-                <!-- OPTION TABLE -->
-                <table class="table">
-                  <thead>
-                    <tr>
-                      <th>Food</th>
-                      <th>Amount</th>
-                      <th>Pro(g)</th>
-                      <th>Carb(g)</th>
-                      <th>Fat(g)</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <!-- PROTEINS -->
-                    <tr v-for="item in option.proteins" :key="item.value">
-                      <td>{{item.label}}</td>
-                      <td>
-                        {{ item.amount?.weight }}{{ item.amount?.count ? ' - ('
-                        + item?.amount?.count + ')' : '' }}
-                      </td>
-                      <td>{{item.nutrientFacts.protein}}</td>
-                      <td>{{item.nutrientFacts.carbs}}</td>
-                      <td>{{item.nutrientFacts.fat}}</td>
-                    </tr>
-                    <!-- CARBS -->
-                    <tr v-for="item in option.carbs" :key="item?.value">
-                      <td>{{item?.label}}</td>
-                      <td>
-                        {{ item.amount?.weight }}{{ item.amount?.count ? ' - ('
-                        + item?.amount?.count + ')' : '' }}
-                      </td>
-                      <td>{{item?.nutrientFacts?.protein}}</td>
-                      <td>{{item?.nutrientFacts?.carbs}}</td>
-                      <td>{{item?.nutrientFacts?.fat}}</td>
-                    </tr>
-                    <!-- FATS -->
-                    <tr v-for="item in option.fats" :key="item?.value">
-                      <td>{{item?.label}}</td>
-                      <td>
-                        {{ item?.amount?.weight }}{{ item?.amount?.count ?' - ('
-                        + item?.amount?.count + ')' : '' }}
-                      </td>
-                      <td>{{item?.nutrientFacts?.protein}}</td>
-                      <td>{{item?.nutrientFacts?.carbs}}</td>
-                      <td>{{item?.nutrientFacts?.fat}}</td>
-                    </tr>
-                    <!-- VEGETABLES -->
-                    <tr v-for="item in option.vegetables" :key="item?.value">
-                      <td>{{item?.label}}</td>
-                      <td>
-                        {{ item.amount?.weight }}{{ item?.amount?.count ? ' - ('
-                        + item?.amount?.count + ')' : '' }}
-                      </td>
-                      <td>{{item?.nutrientFacts?.protein}}</td>
-                      <td>{{item?.nutrientFacts?.carbs}}</td>
-                      <td>{{item?.nutrientFacts?.fat}}</td>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div>
+        <!-- Footer Links -->
+        <ul>
+          <li>
+            <a href="./meal-plan-generator.html">Meal Plan Generator</a>
+          </li>
+          <li>
+            <a href="./workout-plan-generator.html">Workout Plan Generator</a>
+          </li>
+          <li>
+            <a href="./bmr-calculator.html">BMR Calculator</a>
+          </li>
+          <li><a href="./faq.html">F&amp;Q</a></li>
+          <li><a href="./about.html">About</a></li>
+        </ul>
+
+        <!-- Copyright Notice -->
+        <br />
+        <p>&copy; 2024 Chikrice. All rights reserved.</p>
+      </div>
+    </footer>
 
     <script type="module" src="./js/meal-plan-results/index.prod.js"></script>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
