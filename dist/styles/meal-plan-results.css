@@ -117,6 +117,26 @@
   justify-content: space-between;
   border-bottom: solid 1px var(--clr-gray);
 }
+
+.blog {
+  margin-top: 4rem;
+}
+.blog section {
+  margin-bottom: 5rem;
+}
+.blog h2,
+h3 {
+  margin: 0.5rem auto;
+}
+.blog img {
+  margin: 0.5rem 0;
+  max-width: 440px;
+}
+
+.meal-paln-hint {
+  font-style: italic;
+}
+
 /* TABLET  */
 @media screen and (min-width: 800px) {
   .pdf-download-wrapper {
