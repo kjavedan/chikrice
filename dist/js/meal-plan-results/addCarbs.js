@@ -74,6 +74,8 @@ export const addCarbs = (
         rawWeight: processWeight(rawWeight, itemDetails),
         cookedWeight: processWeight(cookedWeight, itemDetails),
         isRaw: itemDetails.isRaw,
+        icon: itemDetails?.icon || "",
+        foodBoxType: itemDetails.foodBoxType,
       };
     });
 

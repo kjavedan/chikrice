@@ -5,7 +5,8 @@ export default {
   label: "🍔 Lean Ground Beef",
   portionWeight: 100,
   priority: { loseWeight: 4, gainWeight: 8 },
-  foodBoxType: "daily",
+  foodBoxType: "sprint",
+  icon: "🍔",
 
   // NUTRIENT_FACTS
   nutrientFacts: {

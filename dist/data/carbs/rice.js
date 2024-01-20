@@ -6,7 +6,7 @@ export default {
   portionWeight: 100,
   priority: null,
   foodBoxType: "daily",
-
+  icon: "🍚",
   //COOKED NUTRIENT_FACTS
   nutrientFacts: {
     calories: 130,

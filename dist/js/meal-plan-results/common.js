@@ -32,7 +32,7 @@ export const processWeight = (weight, info) => {
     const numberOfUnits = totalWeight / info.countWeight;
     const roundedUnits = Math.ceil(numberOfUnits);
     itemCount = `${roundedUnits} ${info.countLabel}${
-      roundedUnits !== 1 ? "s" : ""
+      roundedUnits >= 1 ? "s" : ""
     }`;
   }
 

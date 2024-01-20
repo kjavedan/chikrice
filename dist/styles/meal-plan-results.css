@@ -55,12 +55,14 @@
 }
 
 .food-box {
-  padding: 0.5rem 0.75rem;
+  padding: 1rem;
   border-radius: var(--round-s, 2px);
   background: var(--clr-bg);
   box-shadow: 3px 3px 0px 0px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   transition: all ease-in-out 0.1s;
+  margin-bottom: 0.75rem;
+  margin-right: 0.75rem;
 }
 
 .food-box:active {
@@ -71,17 +73,17 @@
 .food-box-title {
   text-decoration: underline;
   text-align: center;
+  text-transform: capitalize;
 }
 .food-box-content {
   display: flex;
   align-items: center;
   gap: 1rem;
-  font-size: var(--txt-xl);
+  font-size: var(--txt-l);
   margin-top: 0.5rem;
 }
 .single-food-wrapper {
   margin-top: 0.5rem;
-  gap: 1rem;
   display: flex;
   flex-wrap: wrap;
 }
@@ -91,6 +93,8 @@
   background: var(--clr-bg);
   padding: 0.75rem 1rem;
   width: fit-content;
+  margin-bottom: 0.75rem;
+  margin-right: 0.75rem;
 }
 
 .grocery-list {
@@ -140,6 +144,16 @@ h3 {
   font-style: italic;
 }
 
+.step {
+  margin-top: 4rem;
+}
+.step-title {
+  margin-bottom: 1rem;
+  padding: 0.5rem 1rem;
+  border: solid var(--clr-primary);
+  border-radius: var(--round-s);
+  width: fit-content;
+}
 /* TABLET  */
 @media screen and (min-width: 800px) {
   .pdf-download-wrapper {
@@ -151,7 +165,7 @@ h3 {
   }
 
   .grid-box {
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1.1fr 0.9fr;
     gap: 3rem;
   }
 }

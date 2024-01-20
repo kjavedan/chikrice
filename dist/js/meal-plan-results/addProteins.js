@@ -46,6 +46,8 @@ export const addProteins = (goal, userProteinsList, availableMacros) => {
       rawWeight: processWeight(rawWeight, item.details),
       cookedWeight: processWeight(cookedWeight, item.details),
       isRaw: item.details.isRaw,
+      icon: item.details.icon,
+      foodBoxType: item.details.foodBoxType,
     };
   });
 

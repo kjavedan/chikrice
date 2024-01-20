@@ -139,24 +139,28 @@
               <!-- PROTEINS BOX -->
 
               <div class="group-box">
-                <h3 class="group-title">ProteinsBox</h3>
+                <h3 class="group-title">SprintBoxes</h3>
                 <div class="food-boxes">
-                  <div class="food-box">
-                    <h4 class="food-box-title">BeefBox</h4>
-                    <div class="food-box-content">
-                      <span>🥩</span><span>🥩</span><span>🥩</span>
+                  <div v-for="(item, index) in groceryList.proteins" :key="index">
+                    <div class="food-box"  v-if="item.foodBoxType == 'sprint'">
+                      <h4 class="food-box-title">{{item.value}}Box</h4>
+                      <div class="food-box-content">
+                        <span>{{item.icon}}</span><span>{{item.icon}}</span><span>{{item.icon}}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
               <!-- CARBS BOX -->
               <div class="group-box">
-                <h3 class="group-title">CarbsBoxs</h3>
+                <h3 class="group-title">DailyBoxes</h3>
                 <div class="food-boxes">
-                  <div class="food-box">
-                    <h4 class="food-box-title">BeefBox</h4>
-                    <div class="food-box-content">
-                      <span>🥩</span><span>🥩</span><span>🥩</span>
+                  <div v-for="(item, index) in groceryList.carbs.main" :key="index">
+                    <div class="food-box"  v-if="item.foodBoxType == 'daily'">
+                      <h4 class="food-box-title">{{item.value}}Box</h4>
+                      <div class="food-box-content">
+                        <span>{{item.icon}}</span><span>{{item.icon}}</span><span>{{item.icon}}</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -164,23 +168,48 @@
               <!-- VEGETABLES BOX -->
 
               <div class="group-box">
-                <h3 class="group-title">VegetablesBoxs</h3>
+                <h3 class="group-title">VegetablesBoxes</h3>
                 <div class="food-boxes">
+                  <!-- VEGIS -->
                   <div class="food-box">
-                    <h4 class="food-box-title">BeefBox</h4>
+                    <h4 class="food-box-title">VegisBox</h4>
                     <div class="food-box-content">
-                      <span>🥩</span><span>🥩</span><span>🥩</span>
+                      <span>🥦</span><span>🧅</span><span>🫛</span>
                     </div>
                   </div>
+                  <!-- SALAD -->
+                  <div class="food-box">
+                    <h4 class="food-box-title">SaladBox</h4>
+                    <div class="food-box-content">
+                      <span>🍅</span><span>🥬</span><span>🥒</span>
+                    </div>
+                  </div>
+
                 </div>
               </div>
               <!-- SINGLE FOOD -->
-
               <div class="group-box">
-                <h3 class="group-title">SingleFood</h3>
+                <h3 class="group-title">SingleFoods</h3>
                 <div class="single-food-wrapper">
-                  <div class="single-food">
-                    <span>🥜 Nuts</span>
+                  <!-- PROTEINS -->
+                  <div v-for="(item, index) in groceryList.proteins" :key="index">
+                    <div class="single-food" v-if="item.foodBoxType =='single'">
+                      <span>{{item.label}}</span>
+                    </div>
+                  </div>
+                  
+                  <!-- CARBS -->
+                  <div v-for="(item, index) in groceryList.carbs.main" :key="index">
+                    <div class="single-food" v-if="item.foodBoxType =='single'">
+                      <span>{{item.label}}</span>
+                    </div>
+                  </div>
+
+                  <!-- FRUITS -->
+                  <div v-for="(item, index) in groceryList.carbs.fruits" :key="index">
+                    <div class="single-food" v-if="item.foodBoxType =='single'">
+                      <span>{{item.label}}</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -311,11 +340,9 @@
               problem in our <b>FoodBox</b> Method to overcome these common
               challenges.
             </p>
-            <p style="margin-top: 1rem"></p>
-              <em
-                >There are many other reasons for failure in diet <a href="#">click here to read
-                  them</a>, but the above are the main one’s.</em
-              >
+            <p style="margin-top: 1rem">
+              <em>There are many other reasons for failure in diet <a href="#">click here to read
+                  them</a>, but the above are the main one’s.</em>
             </p>
           </section>
 
@@ -359,8 +386,140 @@ You will see the word <b>sprint</b> comes a lot with <b>FoodBox</b>. that’s be
             <img src="./assets/kitchen.jpg" alt="kitchen">
             <h2>How to put the Foodbox into action?</h2>
             <em>Time for the fun part</em>
+
+            <!-- STEP 1 -->
+            <div class="step">
+              <div class="step-title">
+                <span>Step 1</span>
+              </div>
+              <p>Raw proteins should be boxed upfront for 1 <b>sprint</b> at the start of the <b>sprint</b>. That is where the name <b>FoodBox</b> came from. For example you might have something like this:</p>
+              <div class="food-boxes">
+                <!-- BEEF -->
+                <div class="food-box">
+                  <h4 class="food-box-title">BeefBox</h4>
+                  <div class="food-box-content">
+                    <span>🥩</span><span>🥩</span><span>🥩</span>
+                  </div>
+                </div>
+                <!-- Chicken -->
+                <div class="food-box">
+                  <h4 class="food-box-title">ChickenBox</h4>
+                  <div class="food-box-content">
+                    <span>🐔</span><span>🐔</span><span>🐔</span>
+                  </div>
+                </div>
+              </div>
+
+              <p>We recommend you to preserve it in the most convenient way to you. Personally we marinate the proteins for better taste and more safety. You might even buy ready to eat proteins like 🦃 turkey for example in this case you already have it boxed by default.</p>
+
+              <div class="food-boxes">
+                  <!-- TURKEY -->
+                  <div class="food-box">
+                    <h4 class="food-box-title">TurkeyBox</h4>
+                    <div class="food-box-content">
+                      <span>🦃</span><span>🦃</span><span>🦃</span>
+                    </div>
+                  </div>
+            </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="step">
+              <div class="step-title">
+                <span>Step 2</span>
+              </div>
+              <p>Raw carbs and vegetable should be <b>prepared once a day</b>. Either at the start of the day or the night before.</p>
+              <div class="food-boxes">
+                <!-- RICE -->
+                <div class="food-box">
+                  <h4 class="food-box-title">RiceBox</h4>
+                  <div class="food-box-content">
+                    <span>🍚</span><span>🍚</span><span>🍚</span>
+                  </div>
+                </div>
+                <!-- POTATO -->
+                <div class="food-box">
+                  <h4 class="food-box-title">PotatoBox</h4>
+                  <div class="food-box-content">
+                    <span>🥔</span><span>🥔</span><span>🥔</span>
+                  </div>
+                </div>
+                <!-- VEGIS -->
+                <div class="food-box">
+                  <h4 class="food-box-title">VegisBox</h4>
+                  <div class="food-box-content">
+                    <span>🥦</span><span>🧅</span><span>🫛</span>
+                  </div>
+                </div>
+                <!-- SALAD -->
+                <div class="food-box">
+                  <h4 class="food-box-title">SaladBox</h4>
+                  <div class="food-box-content">
+                    <span>🍅</span><span>🥬</span><span>🥒</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="step">
+              <div class="step-title">
+                <span>Step 3</span>
+              </div>
+              <p>Single foods can be cooked or eaten on spot since they require no time to be required. </p>
+              <!-- SINGLE FOOD -->
+              <div class="group-box">
+                <div class="single-food-wrapper">
+                  <!-- PROTEINS -->
+                  <div v-for="(item, index) in groceryList.proteins" :key="index">
+                    <div class="single-food" v-if="item.foodBoxType =='single'">
+                      <span>{{item.label}}</span>
+                    </div>
+                  </div>
+                  
+                  <!-- CARBS -->
+                  <div v-for="(item, index) in groceryList.carbs.main" :key="index">
+                    <div class="single-food" v-if="item.foodBoxType =='single'">
+                      <span>{{item.label}}</span>
+                    </div>
+                  </div>
+
+                  <!-- FRUITS -->
+                  <div v-for="(item, index) in groceryList.carbs.fruits" :key="index">
+                    <div class="single-food" v-if="item.foodBoxType =='single'">
+                      <span>{{item.label}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="step">
+              <div class="step-title">
+                <span>Step 4</span>
+              </div>
+              <p>You might need to use food ⚖️ scale for the first 2 <b>sprints</b>, so you can have an idea of how to split your food to 3 days. Once you got comfortable with it you can ignore the food weighting, Because we are confident that we are on the right track and we are hitting the right macros in 1 <b>sprint</b>. </p>
+            </div>
+
+            <!-- STEP 5 -->
+            <div class="step">
+              <div class="step-title">
+                <span>Step 5</span>
+              </div>
+              <p>Once you reached the end of your <b>sprint</b> and your store has finished you can adjust your food resources again using our smart meal plan generator. Or if your were satisfied with the it, you can continue to the next <b>sprint</b>.</p>
+            </div>
+
+            <!-- STEP 6 -->
+            <div class="step">
+              <div class="step-title">
+                <span>Step 6</span>
+              </div>
+              <p>When it comes to recipes we are unopinionated, That is because everyone is different. In <b>FoodBox</b> method we made sure that the basics and the foundation of a practical meal plan are followed. That is being said we still have some recipes for each <b>FoodBox</b> to get you going if you’re not sure where to start. Click on the each <b>FoodBox</b> so you can see the video.</p>
+            </div>
+
+
           </section>
-        </div>
       </div>
     </div>
 

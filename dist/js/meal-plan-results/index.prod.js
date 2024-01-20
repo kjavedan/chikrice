@@ -86,7 +86,7 @@ createApp({
         proteins: proteinsGroccery,
       };
 
-      console.log(groceryList.value);
+      console.log(groceryList.value.proteins);
     };
 
     //HOOKS

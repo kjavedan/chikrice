@@ -6,7 +6,7 @@ export default {
   portionWeight: 100,
   priority: null,
   foodBoxType: "single",
-
+  icon: "🌾",
   // NUTRIENT_FACTS
   nutrientFacts: {
     calories: 379,

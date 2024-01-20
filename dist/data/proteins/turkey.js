@@ -7,6 +7,7 @@ export default {
   portionWeight: 100,
   priority: { loseWeight: 9, gainWeight: 7 },
   foodBoxType: "sprint",
+  icon: "🦃",
 
   // NUTRIENT_FACTS
   nutrientFacts: {

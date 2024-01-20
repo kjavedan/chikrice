@@ -6,6 +6,7 @@ export default {
   portionWeight: 100,
   priority: { loseWeight: 4, gainWeight: 8 },
   foodBoxType: "daily",
+  icon: "🧈",
 
   // NUTRIENT_FACTS
   nutrientFacts: {

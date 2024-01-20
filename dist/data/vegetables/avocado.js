@@ -5,7 +5,9 @@ export default {
   label: "🥑 Avocado",
   portionWeight: 100,
   priority: null,
-  foodBoxType: "daily",
+  foodBoxType: "vegis",
+  icon: "🥑",
+
   // NUTRIENT_FACTS
   nutrientFacts: {
     calories: 160,
