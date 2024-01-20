@@ -2,10 +2,11 @@
 export default {
   limit: null,
   unit: "gram",
-  value: "beef",
-  label: "🥩 Beef",
+  value: "flankSteak",
+  label: "🥩 flank steak",
   portionWeight: 100,
-  mealOrderPriority: 2,
+  priority: { loseWeight: 4, gainWeight: 8 },
+  foodBoxType: "sprint",
 
   // NUTRIENT_FACTS
   nutrientFacts: {
@@ -28,4 +29,7 @@ export default {
 
   // To decide whether to calculate raw weight or not
   isRaw: true,
+
+  // To show equivalent count of weight
+  isCount: false,
 };

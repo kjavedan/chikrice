@@ -2,10 +2,11 @@
 export default {
   limit: null,
   unit: "gram",
-  value: "beef",
-  label: "🧋 Protein Supplements",
+  value: "proteinWhey",
+  label: "🧋 Protein Whey",
   portionWeight: 100,
-  mealOrderPriority: 1,
+  priority: { loseWeight: 3, gainWeight: 2 },
+  foodBoxType: "single",
 
   // NUTRIENT_FACTS
   nutrientFacts: {
@@ -20,4 +21,8 @@ export default {
 
   // To decide whether to calculate raw weight or not
   isRaw: false,
+  // To show equivalent count of weight
+  isCount: true,
+  countLabel: "scope",
+  countWeight: 30,
 };

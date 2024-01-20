@@ -4,8 +4,8 @@ export default {
   value: "onion",
   label: "🧅 Onion",
   portionWeight: 100,
-  mealOrderPriority: null,
-
+  priority: null,
+  foodBoxType: "vegis",
   // NUTRIENT_FACTS
   nutrientFacts: {
     calories: 40,
@@ -24,4 +24,9 @@ export default {
 
   // To decide whether to calculate raw weight or not
   isRaw: true,
+
+  // To show equivalent count of weight
+  isCount: true,
+  countLabel: "onion",
+  countWeight: 200,
 };

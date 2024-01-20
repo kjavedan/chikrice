@@ -4,7 +4,8 @@ export default {
   value: "nuts",
   label: "🥜 Nuts",
   portionWeight: 100,
-  mealOrderPriority: null,
+  priority: { loseWeight: 1, gainWeight: 3 },
+  foodBoxType: "single",
 
   // NUTRIENT_FACTS
   nutrientFacts: {
@@ -27,4 +28,9 @@ export default {
 
   // To decide whether to calculate raw weight or not
   isRaw: true,
+
+  // To show equivalent count of weight
+  isCount: true,
+  countLabel: "cup",
+  countWeight: 143,
 };

@@ -5,10 +5,19 @@ export default {
   value: "eggWhite",
   label: "🍳 Egg White",
   portionWeight: 100,
-  mealOrderPriority: 1,
+  priority: { loseWeight: 4, gainWeight: 2 },
+  foodBoxType: "single",
 
   // NUTRIENT_FACTS
   nutrientFacts: {
+    calories: 52,
+    protein: 11,
+    carbs: 1,
+    fat: 0,
+  },
+
+  // NUTRIENT_FACTS RAW
+  nutrientFactsRaw: {
     calories: 52,
     protein: 11,
     carbs: 1,
@@ -19,5 +28,10 @@ export default {
   type: "static",
 
   // To decide whether to calculate raw weight or not
-  isRaw: false,
+  isRaw: true,
+
+  // To show equivalent count of weight
+  isCount: true,
+  countLabel: "egg",
+  countWeight: 50,
 };

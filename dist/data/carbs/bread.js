@@ -4,7 +4,8 @@ export default {
   value: "bread",
   label: "🥖 Bread",
   portionWeight: 100,
-  mealOrderPriority: null,
+  priority: null,
+  foodBoxType: "single",
 
   // NUTRIENT_FACTS
   nutrientFacts: {
@@ -16,4 +17,9 @@ export default {
 
   // To decide whether to calculate raw weight or not
   isRaw: false,
+
+  // To show equivalent count of weight
+  isCount: true,
+  countLabel: "slice",
+  countWeight: 30,
 };

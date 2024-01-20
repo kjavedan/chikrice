@@ -4,7 +4,8 @@ export default {
   value: "zucchini",
   label: "🍠 Zucchini",
   portionWeight: 100,
-  mealOrderPriority: null,
+  priority: null,
+  foodBoxType: "vegis",
 
   // NUTRIENT_FACTS
   nutrientFacts: {
@@ -24,4 +25,9 @@ export default {
 
   // To decide whether to calculate raw weight or not
   isRaw: true,
+
+  // To show equivalent count of weight
+  isCount: true,
+  countLabel: "zucchini",
+  countWeight: 200,
 };

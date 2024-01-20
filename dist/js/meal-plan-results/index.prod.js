@@ -1,15 +1,13 @@
 const { createApp, ref, onBeforeMount } = Vue;
-import mealPlan from "../../data/mealPlan/index.js";
 
 import { addCarbs } from "./addCarbs.js";
-import { addFats } from "./addFats.js";
 import { addProteins } from "./addProteins.js";
 import { calculatePlanSummary } from "./calculatePlanSummary.js";
-import { SPRINT_DAYS } from "./constants.js";
+import { processWeight } from "./common.js";
 
 createApp({
   setup() {
-    const mealPlanResult = ref(mealPlan);
+    const groceryList = ref({ fats: [], carbs: {}, proteins: [] });
 
     const mealPlanSummary = ref({
       macros: 0,
@@ -27,7 +25,6 @@ createApp({
       goal: userGoal,
       speed: dietSpeed,
       macros: userMacros,
-      fats: userFatsList,
       carbs: userCarbsList,
       fruits: userFruitsList,
       calories: userCalories,
@@ -68,25 +65,28 @@ createApp({
         userProteinsList,
         availableMacros
       );
-      const fatAvailable = parseInt(availableMacros.value.fat) * SPRINT_DAYS;
 
       //STEP 5 (ADD THE FATS)
       const fatsGroccery = [
         {
           value: "oil",
           label: "🫒🌻 Any Type of Oil",
-          rawWeight: fatAvailable,
-          cookedWeight: fatAvailable,
+          rawWeight: processWeight(availableMacros.value.fat, {}),
+          cookedWeight: processWeight(availableMacros.value.fat, {
+            isCount: true,
+            countLabel: "table spon",
+            countWeight: 15,
+          }),
         },
       ];
 
-      const grocceryList = {
+      groceryList.value = {
         fats: fatsGroccery,
         carbs: carbsGroccery,
-        protiens: proteinsGroccery,
+        proteins: proteinsGroccery,
       };
 
-      console.log(grocceryList);
+      console.log(groceryList.value);
     };
 
     //HOOKS
@@ -96,7 +96,7 @@ createApp({
 
     return {
       userInputs,
-      mealPlanResult,
+      groceryList,
       mealPlanSummary,
     };
   },

@@ -1,30 +1,27 @@
-// TURKEY
 export default {
   limit: null,
   unit: "gram",
-  value: "turkey",
-  label: "🦃 Turkey",
+  value: "groundBeef",
+  label: "🍔 Lean Ground Beef",
   portionWeight: 100,
-  priority: { loseWeight: 9, gainWeight: 7 },
-  foodBoxType: "sprint",
+  priority: { loseWeight: 4, gainWeight: 8 },
+  foodBoxType: "daily",
 
   // NUTRIENT_FACTS
   nutrientFacts: {
-    calories: 135,
-    protein: 30,
+    calories: 250,
+    protein: 26,
     carbs: 0,
-    fat: 1,
+    fat: 8,
   },
 
+  // RAW NUTRIENT_FACTS
   nutrientFactsRaw: {
-    calories: 97,
-    protein: 20,
+    calories: 136,
+    protein: 21,
     carbs: 0,
-    fat: 2,
+    fat: 5,
   },
-
-  // To determine its percentage in the meal plan
-  type: "dynamic",
 
   // To decide whether to calculate raw weight or not
   isRaw: true,

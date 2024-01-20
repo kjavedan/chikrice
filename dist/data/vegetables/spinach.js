@@ -4,8 +4,8 @@ export default {
   value: "spinach",
   label: "🍃 Spinach",
   portionWeight: 100,
-  mealOrderPriority: null,
-
+  priority: null,
+  foodBoxType: "vegis",
   // NUTRIENT_FACTS
   nutrientFacts: {
     calories: 23,
@@ -24,4 +24,9 @@ export default {
 
   // To decide whether to calculate raw weight or not
   isRaw: true,
+
+  // To show equivalent count of weight
+  isCount: true,
+  countLabel: "cup",
+  countWeight: 30,
 };

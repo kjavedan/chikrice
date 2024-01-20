@@ -4,7 +4,8 @@ export default {
   value: "pineapple",
   label: "🍍 Pineapple",
   portionWeight: 100,
-  mealOrderPriority: null,
+  priority: null,
+  foodBoxType: "single",
 
   // NUTRIENT_FACTS
   nutrientFacts: {
@@ -24,4 +25,8 @@ export default {
 
   // To decide whether to calculate raw weight or not
   isRaw: true,
+  // To show equivalent count of weight
+  isCount: true,
+  countLabel: "cup",
+  countWeight: 150,
 };

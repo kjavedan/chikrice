@@ -5,7 +5,8 @@ export default {
   value: "fish",
   label: "🐟 Fish",
   portionWeight: 100,
-  mealOrderPriority: 1,
+  priority: { loseWeight: 7, gainWeight: 6 },
+  foodBoxType: "sprint",
 
   // NUTRIENT_FACTS
   nutrientFacts: {
@@ -28,4 +29,7 @@ export default {
 
   // To decide whether to calculate raw weight or not
   isRaw: true,
+
+  // To show equivalent count of weight
+  isCount: false,
 };

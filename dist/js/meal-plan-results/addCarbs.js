@@ -2,7 +2,7 @@
 import carbsBank from "../../data/carbs/index.js";
 import fruitsBank from "../../data/fruits/index.js";
 import vegetablesBank from "../../data/vegetables/index.js";
-import { updateAvailableMacros } from "./common.js";
+import { processWeight, updateAvailableMacros } from "./common.js";
 import { CARBS_SPLIT_RATIO, SPRINT_DAYS } from "./constants.js";
 
 // Function to add carbs to the meal plan based on user inputs
@@ -52,7 +52,7 @@ export const addCarbs = (
       let rawWeight = 0;
       let cookedWeight = 0;
 
-      if (itemDetails.isRaw) {
+      if (itemDetails?.isRaw) {
         rawWeight = Math.round(
           (carbsAmountToConvert / itemDetails.nutrientFactsRaw.carbs) * 100
         );
@@ -68,12 +68,11 @@ export const addCarbs = (
       );
 
       //ADD THE GROCCERY WEIGHT BASE ON SPRINT PERIOD
-      // ! make change we need raw, cooked weight
       return {
         value: itemDetails.value,
         label: itemDetails.label,
-        rawWeight: parseInt(rawWeight.toFixed(0)) * SPRINT_DAYS,
-        cookedWeight: parseInt(cookedWeight.toFixed(0)) * SPRINT_DAYS,
+        rawWeight: processWeight(rawWeight, itemDetails),
+        cookedWeight: processWeight(cookedWeight, itemDetails),
         isRaw: itemDetails.isRaw,
       };
     });

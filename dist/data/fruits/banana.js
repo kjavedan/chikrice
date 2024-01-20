@@ -4,8 +4,8 @@ export default {
   value: "banana",
   label: "🍌 Banana",
   portionWeight: 100,
-  mealOrderPriority: null,
-
+  priority: null,
+  foodBoxType: "single",
   // NUTRIENT_FACTS
   nutrientFacts: {
     calories: 89,
@@ -24,4 +24,9 @@ export default {
 
   // To decide whether to calculate raw weight or not
   isRaw: true,
+
+  // To show equivalent count of weight
+  isCount: true,
+  countLabel: "banana",
+  countWeight: 150,
 };

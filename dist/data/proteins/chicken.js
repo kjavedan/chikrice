@@ -5,8 +5,8 @@ export default {
   value: "chicken",
   label: "🍗 Chicken",
   portionWeight: 100,
-  mealOrderPriority: 1,
-
+  priority: { loseWeight: 25, gainWeight: 20 },
+  foodBoxType: "sprint",
   // NUTRIENT_FACTS
   nutrientFacts: {
     calories: 165,
@@ -26,4 +26,7 @@ export default {
 
   // To decide whether to calculate raw weight or not
   isRaw: true,
+
+  // To show equivalent count of weight
+  isCount: false,
 };

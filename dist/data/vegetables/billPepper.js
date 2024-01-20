@@ -4,8 +4,8 @@ export default {
   value: "billPepper",
   label: "🫑 Sweet Pepper",
   portionWeight: 100,
-  mealOrderPriority: null,
-
+  priority: null,
+  foodBoxType: "vegis",
   // NUTRIENT_FACTS
   nutrientFacts: {
     calories: 31,
@@ -24,4 +24,9 @@ export default {
 
   // To decide whether to calculate raw weight or not
   isRaw: true,
+
+  // To show equivalent count of weight
+  isCount: true,
+  countLabel: "bill pepper",
+  countWeight: 175,
 };

@@ -30,14 +30,16 @@ createApp({
 
     const proteinsOptions = ref([
       { label: "🥜 Nuts", value: "nuts" },
+      { label: "🧈 tofu", value: "tofu" },
       { label: "🐟 Fish", value: "fish" },
       { label: "🥚 Eggs", value: "eggs" },
-      { label: "🦃 Turkey ", value: "turkey " },
+      { label: "🦃 Turkey ", value: "turkey" },
       { label: "🍳 Egg White", value: "eggWhite" },
       { label: "🐔 Chicken Breast", value: "chicken" },
       { label: "🥩 Flank Steak", value: "flankSteak" },
       { label: "🧋 Protein Whey", value: "proteinWhey" },
       { label: "🥛 Greek Yogurt", value: "greekYogurt" },
+      { label: "🍔 lean Grounded Beef", value: "groundBeef" },
     ]);
 
     const carbsOptions = ref([
@@ -48,7 +50,7 @@ createApp({
       { label: "🥖 Bread", value: "bread" },
       { label: "🥔 Potato", value: "potato" },
       { label: "🍠 Sweet Potato", value: "sweetPotato" },
-      { label: "🫘 beansLentils", value: "Beans & Lentils" },
+      { label: "🫘 beans & Lentils", value: "beansLentils" },
     ]);
     const fruitsOptions = ref([
       { label: "🍏 Apple", value: "apple" },
@@ -70,7 +72,7 @@ createApp({
       { label: "🍠 Zucchini", value: "zucchini" },
       { label: "🍆 Eggplant", value: "eggplant" },
       { label: "🥒 Cucumber", value: "cucumber" },
-      { label: "🫛 Green Beans", value: "greanBeans" },
+      { label: "🫛 Green Beans", value: "greenBeans" },
       { label: "🫑 Bill Pepper", value: "billPepper" },
     ]);
 

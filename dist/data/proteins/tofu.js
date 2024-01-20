@@ -1,26 +1,26 @@
-// TOMATO
 export default {
+  limit: null,
   unit: "gram",
-  value: "tomato",
-  label: "🍅 Tomato",
+  value: "tofu",
+  label: "🧈 Tofu",
   portionWeight: 100,
-  priority: null,
-  foodBoxType: "vegis",
+  priority: { loseWeight: 4, gainWeight: 8 },
+  foodBoxType: "daily",
 
   // NUTRIENT_FACTS
   nutrientFacts: {
-    calories: 18,
-    protein: 0.9,
+    calories: 144,
+    protein: 15,
     carbs: 3.9,
-    fat: 0.2,
+    fat: 8,
   },
 
-  // NUTRIENT_FACTS RAW
+  // RAW NUTRIENT_FACTS
   nutrientFactsRaw: {
-    calories: 18,
-    protein: 0.9,
-    carbs: 3.9,
-    fat: 0.2,
+    calories: 144,
+    protein: 15,
+    carbs: 1.9,
+    fat: 8,
   },
 
   // To decide whether to calculate raw weight or not
@@ -28,6 +28,6 @@ export default {
 
   // To show equivalent count of weight
   isCount: true,
-  countLabel: "tomato",
+  countLabel: "cup",
   countWeight: 200,
 };

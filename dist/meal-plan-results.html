@@ -139,10 +139,10 @@
               <!-- PROTEINS BOX -->
 
               <div class="group-box">
-                <h2 class="group-title">ProteinsBox</h2>
+                <h3 class="group-title">ProteinsBox</h3>
                 <div class="food-boxes">
                   <div class="food-box">
-                    <h3 class="food-box-title">BeefBox</h3>
+                    <h4 class="food-box-title">BeefBox</h4>
                     <div class="food-box-content">
                       <span>🥩</span><span>🥩</span><span>🥩</span>
                     </div>
@@ -151,10 +151,10 @@
               </div>
               <!-- CARBS BOX -->
               <div class="group-box">
-                <h2 class="group-title">CarbsBoxs</h2>
+                <h3 class="group-title">CarbsBoxs</h3>
                 <div class="food-boxes">
                   <div class="food-box">
-                    <h3 class="food-box-title">BeefBox</h3>
+                    <h4 class="food-box-title">BeefBox</h4>
                     <div class="food-box-content">
                       <span>🥩</span><span>🥩</span><span>🥩</span>
                     </div>
@@ -164,10 +164,10 @@
               <!-- VEGETABLES BOX -->
 
               <div class="group-box">
-                <h2 class="group-title">VegetablesBoxs</h2>
+                <h3 class="group-title">VegetablesBoxs</h3>
                 <div class="food-boxes">
                   <div class="food-box">
-                    <h3 class="food-box-title">BeefBox</h3>
+                    <h4 class="food-box-title">BeefBox</h4>
                     <div class="food-box-content">
                       <span>🥩</span><span>🥩</span><span>🥩</span>
                     </div>
@@ -177,7 +177,7 @@
               <!-- SINGLE FOOD -->
 
               <div class="group-box">
-                <h2 class="group-title">SingleFood</h2>
+                <h3 class="group-title">SingleFood</h3>
                 <div class="single-food-wrapper">
                   <div class="single-food">
                     <span>🥜 Nuts</span>
@@ -190,15 +190,61 @@
             <div class="grocery-list">
               <h3 class="grocery-title">Grocery list (3 Days)</h3>
               <div class="grocery-content">
-                <div class="grocery-group">
-                  <div class="grocery-group-title">Proteins</div>
-                  <div class="grocery-group-content">
-                    <div class="grocery-item-row">
-                      <p class="grocery-item-title">🥩 Beef</p>
-                      <span class="grocery-item-weight">300g</span>
+                  <!-- PROTEIN GROUP -->
+                  <div class="grocery-group" >
+                    <div class="grocery-group-title">Proteins</div>
+                    <div class="grocery-group-content">
+                      <div class="grocery-item-row" v-for="(item, index) in groceryList.proteins" :key="index">
+                        <p class="grocery-item-title">{{item.label}}</p>
+                        <span class="grocery-item-weight">{{item.isRaw ? item.rawWeight : item.cookedWeight}}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
+
+                  <!-- CARBS GROUP -->
+                  <div class="grocery-group" >
+                    <div class="grocery-group-title">Carbs</div>
+                    <div class="grocery-group-content">
+                      <div class="grocery-item-row" v-for="(item, index) in groceryList.carbs.main" :key="index">
+                        <p class="grocery-item-title">{{item.label}}</p>
+                        <span class="grocery-item-weight">{{item.isRaw ? item.rawWeight : item.cookedWeight}}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- FRUITS GROUP -->
+                  <div class="grocery-group" >
+                    <div class="grocery-group-title">Fruits</div>
+                    <div class="grocery-group-content">
+                      <div class="grocery-item-row" v-for="(item, index) in groceryList.carbs.fruits" :key="index">
+                        <p class="grocery-item-title">{{item.label}}</p>
+                        <span class="grocery-item-weight">{{item.isRaw ? item.rawWeight : item.cookedWeight}}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- VEGETABLES GROUP -->
+                  <div class="grocery-group" >
+                    <div class="grocery-group-title">vegetables</div>
+                    <div class="grocery-group-content">
+                      <div class="grocery-item-row" v-for="(item, index) in groceryList.carbs.vegetables" :key="index">
+                        <p class="grocery-item-title">{{item.label}}</p>
+                        <span class="grocery-item-weight">{{item.isRaw ? item.rawWeight : item.cookedWeight}}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- FATS GROUP -->
+                  <div class="grocery-group" >
+                    <div class="grocery-group-title">Fats</div>
+                    <div class="grocery-group-content">
+                      <div class="grocery-item-row" v-for="(item, index) in groceryList.fats" :key="index">
+                        <p class="grocery-item-title">{{item.label}}</p>
+                        <span class="grocery-item-weight">{{item.isRaw ? item.rawWeight : item.cookedWeight}}</span>
+                      </div>
+                    </div>
+                  </div>
+
               </div>
             </div>
           </div>
@@ -229,9 +275,9 @@
           </section>
 
           <section>
-            <h2>Top Reasons of failure in Diet</h2>
+            <h2 style="font-size: xx-large;">Top Reasons of failure in Diet</h2>
             <img src="./assets/box.jpg" alt="food box" />
-            <h3>1. Not having a system to follow</h3>
+            <h2>1. Not having a system to follow</h2>
             <p>
               When it comes to dieting <b>consistency</b> is everything and without a
               <b>system</b> to follow, you are doomed to failure. What we mean
@@ -275,7 +321,7 @@
 
           <section>
             <h2>How to overcome these problems</h2>
-            <p>After numerus tries we came up with a simple method called FoodBox, Where we impose a flexible system in you life  we monitor your exact food intake and make sure that you hit the right macros without a lot of hustle and in the same time you don’t fill so restricted on what to eat. Please continue reading because just giving you only a meal plan won’t help you achieve you goal.  </p>
+            <p>After numerus tries we came up with a simple method called <b>FoodBox</b>, Where we impose a flexible system in you life  we monitor your exact food intake and make sure that you hit the right macros without a lot of hustle and in the same time you don’t fill so restricted on what to eat. Please continue reading because just giving you a meal plan won’t help you achieve you goal.  </p>
           </section>
           <section>
             <img src="./assets/chicken.jpg" alt="chicken-box">
@@ -289,7 +335,7 @@ You will see the word <b>sprint</b> comes a lot with <b>FoodBox</b>. that’s be
           <section>
             <img src="./assets/clock.jpg" alt="clock">
             <h2>What is sprint</h2>
-            <p><b>Sprint</b>is the duration that it takes for your <b>store</b> to be finished.</p>
+            <p><b>Sprint</b> is the duration that it takes for your <b>store</b> to be finished.</p>
           </section>
 
           <section>

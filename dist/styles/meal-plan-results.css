@@ -1,9 +1,9 @@
 .meal-plan-results {
   margin-top: 3rem;
-  border: solid;
+  /* border: solid; */
 }
 .grid-box {
-  border: solid red;
+  /* border: solid red; */
   display: grid;
   grid-template-columns: 1fr;
 }
@@ -12,9 +12,10 @@
   border-radius: var(--round-s);
   display: flex;
   align-items: start;
-  padding: 1rem;
-  padding-top: 0rem;
+  padding: 2rem;
+  padding-top: 1rem;
   gap: 2rem;
+  width: fit-content;
 }
 
 .meal-plan-result-summary .left {
@@ -37,17 +38,17 @@
 }
 
 .food-boxes-wrapper {
-  border: solid;
+  /* border: solid; */
   margin-top: 3rem;
 }
 .group-box {
-  border: solid;
+  /* border: solid; */
   margin-bottom: 2rem;
 }
 
 .food-boxes {
   margin-top: 0.5rem;
-  border: solid yellow;
+  /* border: solid yellow; */
   display: flex;
   flex-wrap: wrap;
   padding-bottom: 0.5rem;
@@ -101,7 +102,7 @@
 
 .grocery-content {
   margin-top: 1.5rem;
-  border: solid;
+  /* border: solid; */
 }
 
 .grocery-group {
@@ -116,6 +117,7 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: solid 1px var(--clr-gray);
+  padding: 0.5rem 0;
 }
 
 .blog {
@@ -130,7 +132,8 @@ h3 {
 }
 .blog img {
   margin: 0.5rem 0;
-  max-width: 440px;
+  width: 100%;
+  max-width: 380px;
 }
 
 .meal-paln-hint {
@@ -148,7 +151,7 @@ h3 {
   }
 
   .grid-box {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 0.8fr;
     gap: 3rem;
   }
 }
