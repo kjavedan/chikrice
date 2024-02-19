@@ -380,6 +380,37 @@
                 </div>
               </div>
             </div>
+
+            <!-- STEP_10 -->
+            <div v-if="step === 10">
+              <!-- Radio Group for Meals -->
+              <div class="radio-group-wrapper">
+                <div class="input-radio-group">
+                  <div class="radio">
+                    <input
+                      type="radio"
+                      value="false"
+                      name="'meals'"
+                      id="sweetAndSnack"
+                      class="custom-radio"
+                      v-model="data.sweetAndSnack"
+                    />
+                    <label for="sweetAndSnack">No</label>
+                  </div>
+                  <div class="radio">
+                    <input
+                      type="radio"
+                      value="true"
+                      name="'meals'"
+                      id="sweetAndSnack"
+                      class="custom-radio"
+                      v-model="data.sweetAndSnack"
+                    />
+                    <label for="sweetAndSnack">Yes</label>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
           <!-- MEAL PLAN LINKS -->
