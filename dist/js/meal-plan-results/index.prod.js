@@ -41,6 +41,7 @@ createApp({
         dietSpeed,
         userMacros
       );
+
       mealPlanSummary.value = { macros, calories };
 
       availableMacros.value = {
